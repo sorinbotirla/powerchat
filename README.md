@@ -33,21 +33,21 @@ Check the <a href="https://github.com/sorinbotirla/powerchat/tree/main/screensho
 you'll need to set up a few things like database configurations for the conversations and messages storage,
 websocket configuration for real time messaging.
 
-<h3>config.php</h3>
-this file handles the configuration for the index.php (API file) that is responsible with the database management and email settings. Change everything you need.
+<h3><a href="https://github.com/sorinbotirla/powerchat/blob/main/config.php">config.php</a></h3>
+this file handles the configuration for the <a href="https://github.com/sorinbotirla/powerchat/blob/main/index.php">index.php</a> (API file) that is responsible with the database management and email settings. Change everything you need.
 
 
-<h3>powerchat_websocket_server.py</h3>
+<h3><a href="https://github.com/sorinbotirla/powerchat/blob/main/powerchat_websocket_server.py">powerchat_websocket_server.py</a></h3>
 this is the websocket server file, written in Python. Change the port, timezone, cert and key path accordingly.
 
-<h3>watchdog.sh</h3>
+<h3><a href="https://github.com/sorinbotirla/powerchat/blob/main/watchdog.sh">watchdog.sh</a></h3>
 this file is a watchdog that checks if the websocket server is still running. It will restart it automatically if you add this script to your cron for every minute.<br />
 Change the cd path to the folder where the websocket python script is located. This file will also restart the websocket server at 3:00 AM to clear eventual overhead.
 
-<h3>assets/js/client.js and assets/js/operator.js</h3>
+<h3><a href="https://github.com/sorinbotirla/powerchat/blob/main/client.js">assets/js/client.js</a> and <a href="https://github.com/sorinbotirla/powerchat/blob/main/operator.js">assets/js/operator.js</a></h3>
 these files are used for the customer and operator chat. You'll need to change the <br />
 _self.websocketUrl, // url for the websocket server (just the domain)<br />
-_self.apiUrl, // url for your chat index.php (API file)<br />
+_self.apiUrl, // url for your chat <a href="https://github.com/sorinbotirla/powerchat/blob/main/index.php">index.php</a> (API file)<br />
 _self.operatorAvatarUrl, // the url for the operator avatar, it can be like https://yourdomain/assets/img/operator-avatar.png<br />
 _self.attachmentsUrl, // the url for the attachments folder<br />
 _self.websocketPort // the port for the websocket server, ex 5678<br />
@@ -61,7 +61,7 @@ A SSL Certificate (.crt) and Key (.key) You'll get them from your host provider 
 Of course, you will have to open the websocket desired port trough your firewall if you have one.
 
 <h3>Testing</h3>
-Operator chat will be available at https:// your url here / path to the index.php?method=manageoperator<br />
+Operator chat will be available at https:// your url here / path to the <a href="https://github.com/sorinbotirla/powerchat/blob/main/index.php">index.php</a>?method=manageoperator<br />
 Customer chat will be available at https:// your url here / path to the client.html (you can replace later this path with your desired application if you plan to integrate it)
 
 In production you will need a second parameter called pwrsid and the value can be generated with $this->generatePowerSupportSid(); <br />
