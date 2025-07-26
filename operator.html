@@ -1,0 +1,122 @@
+<html>
+<head>
+    <title>PowerChat</title>
+    <style type="text/css">
+        @import "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css";
+        @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.css";
+        @import "assets/css/easyzoom.css";
+        @import "assets/css/operator.css";
+    </style>
+</head>
+<body>
+<div class="loader"></div>
+<div class="powerChatOperator">
+    <div class="powerChatOperatorInner table">
+        <div class="powerChatSidePanelWrapper td">
+            <div class="powerChatSidePanelInner table">
+                <div class="powerChatSidePanelHead tr">
+                    <div class="powerChatSidePanelHeadInner td">
+                        <h2 data-operator="{{operator}}"><span class="operator">{{operator}}</span><div class="onlineOperators"></div></h2>
+                        <div class="conversationFilters">
+                            <button class="conversationFilterBtn active" data-filter="all">All</button>
+                            <button class="conversationFilterBtn" data-filter="unread">Unread</button>
+                            <button class="conversationFilterBtn" data-filter="notreplied">Not Answered</button>
+                            <input type="text" class="inputSearchConversationItems" placeholder="Search" />
+                        </div>
+                    </div>
+                </div>
+                <div class="powerChatSidePanelBody tr">
+                    <div class="powerChatConversationsListWrapper td">
+                        <div class="powerChatConversationsList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="powerChatConversationWrapper td">
+            <div class="powerChatConversationInner table" data-conversationuuid="">
+                <div class="powerChatConversationMessagesWrapper tr">
+                    <div class="powerChatConversationMessagesContainer td">
+                        <div class="powerImagesUploaderWrapper">
+                            <a href="javascript:void(0);" class="btnCloseFileUploader">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                            <div class="imageUploadWrapper">
+                                <div id="dropFileZone">
+                                    <div id="dragUploadFile">
+                                        <p>
+                                            <input type="button" value="Select images/videos or drop them here" id="selectfilesBtn">
+                                            <i class="fas fa-upload"></i>
+                                        </p>
+                                        <input type="file" id="selectfile" multiple accept="image/png, image/jpeg, video/mp4" />
+                                    </div>
+                                </div>
+                                <div class="uploadedFilesContainer table">
+                                    <div class="uploadedFilesInner td">
+                                        <div class="uploadedFilesWrapper table">
+                                            <div class="uploadedFilesThumbnailsWrapper td">
+                                                <div class="uploadedFilesThumbnailsInner">
+
+                                                </div>
+                                            </div>
+                                            <div class="uploadedFilesAddNewWrapper td">
+                                                <a href="javascript:void(0);" class="btnAddNewFiles">
+                                                    <i class="fas fa-plus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btnSendPreloadedFilesWrapper td">
+                                        <a href="javascript:void(0);" class="btnSendPreloadedFiles">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="powerChatConversationMessagesInner"></div>
+                    </div>
+                </div>
+                <div class="powerChatConversationActionsWrapper tr">
+                    <div class="powerChatConversationActionsContainer td">
+                        <div class="powerChatConversationActionsInner table">
+                            <div class="powerChatConversationActionsInnerInner tr">
+                                <div class="powerChatConversationActionsNewFileWrapper td">
+                                    <a href="javascript:void(0);" class="btnOpenSelectNewFile"></a>
+                                </div>
+                                <div class="powerChatConversationActionsNewMessageWrapper td">
+                                    <textarea class="newMessageInput" id="newMessageInput" name="newMessageInput" placeholder="Write your message here" rows="1" spellcheck="false"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="popup" data-popup="sendEmailPopup">
+    <div class="popupHead">
+        <h2>Send reply to customer's email (<span class="clientName"></span>)</h2>
+        <a href="javascript:void(0);" class="btnClosePopup"><i class="fas fa-plus"></i></a>
+    </div>
+    <div class="popupBody">
+        <p>Your reply will be sent on the customer's email. Once sent, this conversation won't continue until the customer replies. The customer's reply will show as a new message in this conversation.</p>
+        <div class="emailBody">
+            <textarea class="emailBodyInput" placeholder="Your reply message"></textarea>
+        </div>
+    </div>
+    <div class="popupActions">
+        <a href="javascript:void(0);" class="btnCancel">Cancel</a>
+        <a href="javascript:void(0);" class="btnConfirm" data-uuid="" data-email="">Send email</a>
+    </div>
+</div>
+<div class="popupUnderlay"></div>
+<div class="statusmsgs"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.js"></script>
+<script src="assets/js/easyzoom.js"></script>
+<script defer src="assets/js/operator.js"></script>
+</body>
+</html>

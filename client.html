@@ -1,0 +1,105 @@
+<html>
+<head>
+    <title>PowerChat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+        @import "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css";
+        @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.css";
+        @import "assets/css/client.css";
+        @import "assets/css/client.responsive.css";
+
+        /* BEGIN STYLES FOR CLIENT DEMO */
+        html, body {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: clip;
+            background: #f7f7f7;
+        }
+        /* END STYLES FOR CLIENT DEMO */
+    </style>
+</head>
+<body>
+<div class="powerChatloader"></div>
+<a href="javascript:void(0);" class="btnShowPowerChatFob"><i class="fas fa-comment-dots"></i><span class="newMessagesCounter" data-newmessages="0">0</span></a>
+<div class="powerChat">
+    <div class="introductionWrapper">
+        <div class="introductionContainer">
+            <p><strong>Hello,</strong> tell us who you are to get in contact with one of our operators.</p>
+            <div class="introductionInner">
+                <div class="fieldGroup">
+                    <div class="fieldWrapper">
+                        <span class="label">First Name <strong>*</strong></span>
+                        <input type="text" placeholder="First Name" class="introductionFirstName" spellcheck="false" />
+                        <span class="error">Required</span>
+                    </div>
+                    <div class="fieldWrapper">
+                        <span class="label">Last Name <strong>*</strong></span>
+                        <input type="text" placeholder="Last Name" class="introductionLastName" spellcheck="false" />
+                        <span class="error">Required</span>
+                    </div>
+                    <div class="fieldWrapper">
+                        <span class="label">Email <strong>*</strong></span>
+                        <input type="text" placeholder="Email" class="introductionEmail" spellcheck="false" />
+                        <span class="error">Required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="introductionInner">
+                <div class="fieldGroup">
+                    <div class="fieldWrapper">
+                        <input type="checkbox" name="agreegdprchat" id="agreegdprchat" class="agreegdprchat" />
+                        <!--REPLACE ANCHOR HREF WITH TERMS AND CONDITIONS URL-->
+                        <label for="agreegdprchat">I agree with </label><a href="javascript:void(0);" target="_blank">Terms and Conditions<strong>*</strong></a>
+                        <span class="error">Required</span>
+                    </div>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="btnIntroductionStartConversation">Start Conversation</a>
+        </div>
+    </div>
+    <div class="chatWrapper table">
+        <div class="chatHead tr">
+            <div class="chatHeadInner td">
+                <h2>Client Support</h2>
+                <a href="javascript:void(0);" class="btnToggleChat"></a>
+            </div>
+        </div>
+        <div class="chatBody tr">
+            <div class="chatBodyInner td">
+                <div class="chatConversationWrapper">
+
+                </div>
+            </div>
+        </div>
+        <div class="chatFooter tr">
+            <div class="chatFooterInner td">
+                <div class="chatNewMessageWrapper table">
+                    <div class="addFilesWrapper td">
+                        <div class="uploadedFilesThumbnailsInner"></div>
+                        <a href="javascript:void(0);" class="btnSelectNewFiles show"><i class="fas fa-images"></i></a>
+                        <a href="javascript:void(0);" class="btnCancelAddingNewFiles"><i class="fas fa-plus"></i></a>
+                        <input type="file" id="selectfile" multiple accept="image/png, image/jpeg, video/mp4" />
+                    </div>
+                    <div class="inputWrapper td">
+                        <textarea class="newMessageInput show" placeholder="Write your message here" rows="1" spellcheck="false"></textarea>
+                        <a href="javascript:void(0);" class="btnSendThisMessage show"><i class="fas fa-paper-plane"></i></a>
+                    </div>
+                    <div class="btnSendPreloadedFilesWrapper td">
+                        <a href="javascript:void(0);" class="btnSendPreloadedFiles"><i class="fas fa-paper-plane"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="statusmsgs"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.js"></script>
+<script defer src="assets/js/client.js"></script>
+</body>
+</html>

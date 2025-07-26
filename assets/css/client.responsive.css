@@ -1,0 +1,116 @@
+@media (max-width: 1024px), (max-width: 1299px) and (-webkit-device-pixel-ratio: 3) {
+    /* begin only mobile */
+    html.powerChatOpen, body.powerChatOpen {
+        overscroll-behavior: none; /* Disables scroll chaining */
+    }
+
+    html.powerChatOpen,
+    body.powerChatOpen {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        height: 100% !important;
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+
+    .powerChat {
+        width: 100% !important;
+        top: 0 !important;
+        bottom: unset !important;
+        right: 0 !important;
+        height: 100% !important;
+        max-width: unset;
+    }
+
+    .powerChat .chatBody {
+        height: auto !important;
+    }
+
+    .chatConversationWrapper {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; /* Enables smooth native scroll on iOS */
+        touch-action: pan-y;
+        overscroll-behavior: contain;
+    }
+
+    .powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentFiles .messageImgItem:first-child, .powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentFiles .messageVideoItem:first-child {
+        width: 160px !important;
+    }
+
+    .powerChat .introductionWrapper .introductionContainer {
+        padding: 10px !important;
+    }
+
+    .powerChat .introductionWrapper .introductionContainer p {
+        position: relative;
+        font-size: 14px !important;
+        line-height: 19px !important;
+        text-align: center;
+        padding: 0 0 20px;
+        margin: 0 0 20px;
+        border-bottom: 1px solid #ddd;
+        color: #616161;
+    }
+
+    .powerChat .introductionWrapper .introductionContainer p strong {
+        display: block;
+        font-size: 23px !important;
+        line-height: 35px !important;
+        color: #006bd1;
+    }
+
+    .powerChat .introductionWrapper .introductionContainer .introductionInner {
+        position: relative;
+        text-align: center;
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        margin: 20px 0;
+    }
+
+    .powerChat .introductionWrapper .introductionContainer .introductionInner .fieldGroup {
+        display: block;
+        position: relative;
+    }
+
+    .powerChat .introductionWrapper .introductionContainer .introductionInner .fieldGroup .fieldWrapper {
+        position: relative;
+        display: block;
+    }
+
+    .powerChat .introductionWrapper .introductionContainer .introductionInner .introductionFirstName,
+    .powerChat .introductionWrapper .introductionContainer .introductionInner .introductionLastName,
+    .powerChat .introductionWrapper .introductionContainer .introductionInner .introductionEmail {
+        border-radius: 100px !important;
+        padding: 10px 15px !important;
+    }
+
+    .powerChat .introductionWrapper .introductionContainer .introductionInner .label {
+        position: relative;
+        display: block;
+        font-size: 15px;
+        line-height: 15px;
+        padding: 0 0 5px;
+        text-align: center;
+    }
+
+    .powerChat .chatConversationWrapper .message .messageContent .messageContentInner {
+        max-width: 240px;
+    }
+
+    .powerChat .newMessageInput {
+        position: absolute;
+        border-radius: 40px;
+        height: 50px;
+        width: calc(100% - 80px);
+        padding: 10px;
+        font-size: 18px;
+        line-height: 25px;
+        border: 1px solid #ddd;
+        background: #fff;
+        overflow: hidden;
+        display: none;
+    }
+    /* end only mobile */
+}

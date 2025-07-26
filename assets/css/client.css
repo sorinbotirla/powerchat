@@ -1,0 +1,1430 @@
+.powerChat div, .powerChat span, .powerChat applet, .powerChat object, .powerChat iframe,
+.powerChat h1, .powerChat h2, .powerChat h3, .powerChat h4, .powerChat h5, .powerChat h6, .powerChat p, .powerChat blockquote, .powerChat pre,
+.powerChat a, abbr, .powerChat acronym, .powerChat address, .powerChat big, .powerChat cite, .powerChat code,
+del, .powerChat dfn, .powerChat em, .powerChat img, .powerChat ins, .powerChat kbd, .powerChat q, .powerChat s, .powerChat samp,
+small, .powerChat strike, .powerChat strong, .powerChat sub, .powerChat sup, .powerChat tt, .powerChat var,
+b, .powerChat u, .powerChat center,
+dl, .powerChat dt, .powerChat dd, .powerChat ol, .powerChat ul, .powerChat li,
+fieldset, .powerChat form, .powerChat label, .powerChat legend,
+table, .powerChat caption, .powerChat tbody, .powerChat tfoot, .powerChat thead, .powerChat tr, .powerChat th, .powerChat td,
+article, .powerChat aside, .powerChat canvas, .powerChat details, .powerChat embed,
+figure, .powerChat figcaption, .powerChat footer, .powerChat header, .powerChat hgroup,
+menu, .powerChat nav, .powerChat output, .powerChat ruby, .powerChat section, .powerChat summary,
+time, .powerChat mark, .powerChat audio, .powerChat video,
+.powerChatMediaPopup div, .powerChatMediaPopup span, .powerChatMediaPopup applet, .powerChatMediaPopup object, .powerChatMediaPopup iframe,
+.powerChatMediaPopup h1, .powerChatMediaPopup h2, .powerChatMediaPopup h3, .powerChatMediaPopup h4, .powerChatMediaPopup h5, .powerChatMediaPopup h6, .powerChatMediaPopup p, .powerChatMediaPopup blockquote, .powerChatMediaPopup pre,
+.powerChatMediaPopup a, abbr, .powerChatMediaPopup acronym, .powerChatMediaPopup address, .powerChatMediaPopup big, .powerChatMediaPopup cite, .powerChatMediaPopup code,
+del, .powerChatMediaPopup dfn, .powerChatMediaPopup em, .powerChatMediaPopup img, .powerChatMediaPopup ins, .powerChatMediaPopup kbd, .powerChatMediaPopup q, .powerChatMediaPopup s, .powerChatMediaPopup samp,
+small, .powerChatMediaPopup strike, .powerChatMediaPopup strong, .powerChatMediaPopup sub, .powerChatMediaPopup sup, .powerChatMediaPopup tt, .powerChatMediaPopup var,
+b, .powerChatMediaPopup u, .powerChatMediaPopup center,
+dl, .powerChatMediaPopup dt, .powerChatMediaPopup dd, .powerChatMediaPopup ol, .powerChatMediaPopup ul, .powerChatMediaPopup li,
+fieldset, .powerChatMediaPopup form, .powerChatMediaPopup label, .powerChatMediaPopup legend,
+table, .powerChatMediaPopup caption, .powerChatMediaPopup tbody, .powerChatMediaPopup tfoot, .powerChatMediaPopup thead, .powerChatMediaPopup tr, .powerChatMediaPopup th, .powerChatMediaPopup td,
+article, .powerChatMediaPopup aside, .powerChatMediaPopup canvas, .powerChatMediaPopup details, .powerChatMediaPopup embed,
+figure, .powerChatMediaPopup figcaption, .powerChatMediaPopup footer, .powerChatMediaPopup header, .powerChatMediaPopup hgroup,
+menu, .powerChatMediaPopup nav, .powerChatMediaPopup output, .powerChatMediaPopup ruby, .powerChatMediaPopup section, .powerChatMediaPopup summary,
+time, .powerChatMediaPopup mark, .powerChatMediaPopup audio, .powerChatMediaPopup video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.powerChatMediaPopup a,
+.powerChat a {
+    text-decoration: none;
+}
+
+.powerChat ol, .powerChat ul {
+    list-style: none;
+}
+
+.powerChat blockquote, .powerChat q {
+    quotes: none;
+}
+
+.powerChat blockquote:before, .powerChat blockquote:after,
+.powerChat q:before, .powerChat q:after {
+    content: '';
+    content: none;
+}
+
+.powerChat table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.powerChatMediaPopup .clearfix:after,
+.powerChat .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.powerChatMediaPopup .clearfix,
+.powerChat .clearfix {
+    zoom: 1;
+}
+
+/* IE6 */
+.powerChat *:first-child + .powerChat .clearfix {
+    zoom: 1;
+}
+
+/* IE7 */
+.powerChat *:not(i) {
+    font-family: sans-serif, Arial;
+}
+
+.powerChatMediaPopup *,
+.powerChat * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.powerChat [type="checkbox"].filled-in:checked + span:not(.lever):after {
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #26a69a;
+    background-color: #26a69a;
+    z-index: 0;
+    box-shadow: 0 2px 5px #26a69a;
+}
+
+.powerChat [type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:before, [type="radio"].with-gap:checked + span:after {
+    border: 2px solid #26a69a;
+    box-shadow: 0 2px 5px #26a69a;
+}
+
+.powerChat [type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:after {
+    background-color: #26a69a;
+    box-shadow: 0 2px 5px #26a69a;
+}
+
+.powerChat .table {
+    display: table;
+    position: relative;
+    width: 100%;
+    /*overflow: hidden;*/
+}
+
+.powerChat .thead,
+.powerChat .tbody {
+    display: table-row-group;
+}
+
+.powerChat .th, .powerChat .td {
+    display: table-cell;
+    /* border-top: 1px solid #ddd; */
+    padding: 10px;
+}
+
+.powerChat .tr {
+    display: table-row;
+}
+
+.powerChat .tr:nth-child(even) {
+    /*background: rgba(0,0,0,0.1);*/
+}
+
+.powerChat .th {
+    font-weight: 700;
+}
+
+.powerChat .td {
+    color: #666;
+    position: relative;
+}
+
+.powerChat .trg {
+    display: table-row-group;
+}
+
+.powerChat .button,
+.powerChat .button:active,
+.powerChat .button:hover,
+.powerChat .button:focus,
+.powerChat .button:visited {
+    background-color: #00b95d;
+    font-size: 14px;
+    color: #fff;
+    padding: 10px 15px;
+    display: inline-block;
+    position: relative;
+    border-radius: 50px;
+}
+
+.powerChat .btnWhite {
+    background-color: #fff;
+    color: #000 !important;
+}
+
+.powerChat .btnBlue {
+    background-color: #005eb8 !important;
+    box-shadow: 0 2px 12px 0 rgb(0 94 184 / 22%);
+    color: #fff !important;
+    border-radius: 50px;
+}
+
+.powerChat .btnRed {
+    background-color: red !important;
+    box-shadow: 0 2px 12px 0 rgb(255 0 0 / 82%);
+    color: #fff !important;
+}
+
+.powerChat .btnGreen {
+    background-color: #006827 !important;
+    box-shadow: 0 2px 12px 0 rgba(0, 104, 39, 0.82);
+    color: #fff !important;
+}
+
+.powerChat .btnOrange {
+    background-color: #dd7a00 !important;
+    box-shadow: 0 2px 12px 0 rgb(221 122 0 / 24%);
+    color: #fff !important;
+}
+
+.powerChat .success {
+    color: #00b300;
+}
+
+.powerChat .error {
+    color: #d40000;
+}
+
+.powerChatStatusmsgs {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    transform: translateY(0);
+    text-align: center;
+    width: 100vw;
+    margin: 20px auto;
+    z-index: 999999999999;
+    pointer-events: none !important;
+}
+
+.powerChatStatusmsgs .msg {
+    white-space: nowrap;
+    position: absolute;
+    left: 50%;
+    transform: translateY(-100px) translateX(-50%) scale(0) !important;
+    border-radius: 50px;
+    display: inline-block;
+    padding: 20px;
+    background: #fff;
+    color: #fff !important;
+    opacity: 0;
+    font-size: 20px;
+    transition: transform 300ms ease 300ms, opacity 300ms linear 300ms;
+    /*animation: msgIn 300ms ease;*/
+}
+
+.powerChatStatusmsgs .msg.show {
+    opacity: 1;
+    transition: transform 300ms ease, opacity 300ms linear;
+    transform: translateY(0) translateX(-50%) scale(1) !important;
+}
+
+.powerChatStatusmsgs .msg i {
+    display: inline-block;
+    position: relative;
+    top: -1px;
+}
+
+.powerChatStatusmsgs .msg.info {
+    background: #005eb8;
+}
+
+.powerChatStatusmsgs .msg.success {
+    background: #00b300;
+}
+
+.powerChatStatusmsgs .msg.error {
+    background: #d40000;
+}
+
+.powerChatStatusmsgs .msg span {
+    position: relative;
+    display: inline-block;
+    padding: 0 0 0 0;
+    transition: padding 300ms ease, max-width 300ms ease;
+    max-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.powerChatStatusmsgs .msg.show span {
+    paddinG: 0 0 0 15px;
+    max-width: 100vw;
+    transition: padding 300ms ease 350ms, max-width 500ms ease 300ms;
+}
+
+.powerChatLoader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(245, 245, 245, 0.9);
+    z-index: 99999999999;
+    display: none;
+}
+
+.powerChatLoader:before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    display: block;
+    position: absolute;
+    border-top: 2px solid #005eb8;
+    border-bottom: 2px solid #005eb8;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    animation: loading 500ms linear infinite;
+}
+
+.powerChatLoader .loader {
+    display: block !important;
+}
+
+.powerChat input[type='text'],
+.powerChat input[type='number'],
+.powerChat textarea {
+    position: relative;
+    display: block;
+    margin: 0 0;
+    border: 1px solid #ddd;
+    background: #fff;
+    resize: none;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 14px;
+    color: #000;
+}
+
+.powerChat .startConversationDetailsWrapper {
+    position: relative;
+}
+
+.powerChat .inputGroup {
+    position: relative;
+}
+
+.powerChat .inputWrapper {
+    position: relative;
+}
+
+.powerChat {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: unset;
+    right: 20px;
+    width: 90%;
+    max-width: 500px;
+    height: 690px;
+    max-height: 100%;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 2px 23px 11px rgba(0, 0, 0, 0.1);
+    z-index: 999999999;
+    border: 1px solid #ddd;
+}
+
+.powerChat.show {
+    display: block !important;
+}
+
+.powerChat .chatWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.powerChat .chatHead {
+    position: relative;
+    height: 40px;
+    padding-right: 100px;
+}
+
+.powerChat .chatHead h2 {
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.powerChat .btnToggleChat {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    display: block;
+}
+
+.powerChat .btnToggleChat:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    display: block;
+    content: "";
+    margin: -5px 0 0 0;
+}
+
+.powerChat .btnToggleChat:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-top: 2px solid transparent;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    border-left: 2px solid transparent;
+}
+
+.powerChat .chatBody {
+    position: relative;
+    height: calc(100% - 110px);
+}
+
+.powerChat .chatBodyInner:before,
+.powerChat .chatBodyInner:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 20px;
+    z-index: 100;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.powerChat .chatBodyInner:before {
+    top: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+}
+
+.powerChat .chatBodyInner:after {
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+
+.powerChat .chatBodyInner .operatorsOnlineMessageWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    background: #0064ff;
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 19px;
+    z-index: 10;
+    text-align: center;
+}
+
+.powerChat .chatBodyInner .operatorsOnlineMessageWrapper.noOperators {
+    display: block !important;
+}
+
+.powerChat .chatConversationWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #f5f5f5, #fff);
+    overflow-x: clip;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.powerChat .chatConversationWrapper.noOperators {
+    padding-top: 60px;
+}
+
+.powerChat .chatConversationWrapper .message {
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 10px;
+}
+
+.powerChat .chatConversationWrapper .message.messageClient {
+    text-align: right;
+}
+
+.powerChat .chatConversationWrapper .message .messageAuthor {
+    position: relative;
+    width: 60px;
+}
+
+.powerChat .chatConversationWrapper .message .messageAuthor .messageAuthorAvatarWrapper {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.powerChat .chatConversationWrapper .message .messageAuthor .messageAuthorAvatarWrapper .messageAuthorAvatar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: auto;
+}
+
+.powerChat .chatConversationWrapper .message .messageAuthor .messageAuthorName {
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    font-size: 11px;
+    line-height: 14px;
+    font-weight: bold;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent {
+    position: relative;
+    vertical-align: top;
+    padding-left: 0;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner {
+    position: relative;
+    margin-top: 7px;
+    background: #0064ff;
+    border-radius: 0 10px 10px 10px;
+    padding: 9px 15px;
+    color: #fff;
+    display: inline-block;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.powerChat .chatConversationWrapper .message.messageClient .messageContent .messageContentInner {
+    background: #fff;
+    color: #000;
+    border-radius: 10px 0 10px 10px;
+    max-width: calc(100% - 90px);
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageUrlPreview {
+    position: relative;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageUrlPreview .waLinkPreview {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    max-width: 352px;
+    margin: -10px -6px 10px;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.powerChat .chatConversationWrapper .message.messageOperator .messageContent .messageContentInner .messageUrlPreview .waLinkPreview {
+    background: #1d3da8;
+    border-radius: 6px;
+    box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    max-width: 372px;
+    margin: -10px -6px 10px;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageUrlPreview .waLinkPreviewBody {
+    position: relative;
+    padding: 10px;
+    background: #f0f7ff;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.powerChat .chatConversationWrapper .message.messageOperator .messageContent .messageContentInner .messageUrlPreview .waLinkPreviewBody {
+    background: #1d3c95;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageUrlPreview .waLinkPreviewBody .waLinkPreviewTitle {
+    font-size: 18px;
+    line-height: 20px;
+    padding: 0 0 10px;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageUrlPreview .waLinkPreviewBody .waLinkPreviewUrl {
+    position: relative;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.powerChat .chatConversationWrapper .message.messageOperator .messageContent .messageContentInner .messageUrlPreview .waLinkPreview a {
+    color: #fff;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageUrlPreview .waLinkPreview .waLinkPreviewImg img {
+    width: 100%;
+    display: block;
+    max-height: 180px;
+    object-fit: cover;
+    background: #fafafa;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner:after {
+    top: 0;
+    left: -10px;
+    width: 0;
+    height: 0;
+    position: absolute;
+    content: "";
+    display: block;
+    border-top: 20px solid #0064ff;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid transparent;
+}
+
+.powerChat .chatConversationWrapper .message.messageClient .messageContent .messageContentInner:after {
+    left: unset;
+    right: -10px;
+    border-top: 20px solid #fff;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid transparent;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentText {
+    position: relative;
+    font-size: 14px;
+    line-height: 18px;
+    color: #fff;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentText a.url {
+    color: #0064ff;
+    text-decoration: underline !important;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.powerChat .chatConversationWrapper .message.messageOperator .messageContent .messageContentInner .messageContentText a.url {
+    color: #fff;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.powerChat .chatConversationWrapper .message.messageClient .messageContent .messageContentInner .messageContentText {
+    color: #000;
+    text-align: left;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+.powerChat .chatConversationWrapper .message.typingEventMessage .messageContent .messageContentInner .messageContentText .dotTyping {
+    position: relative;
+    display: inline-block;
+    margin: 0 2px;
+    width: 10px;
+    height: 10px;
+    background: #afcdff;
+    border-radius: 50px;
+}
+
+@keyframes typingDots {
+    0% {
+        transform: translateY(0);
+        background: #afcdff;
+    }
+    50% {
+        transform: translateY(-2px);
+        background: #fff;
+    }
+    80% {
+        transform: translateY(2px);
+        background: #afcdff;
+    }
+    80% {
+        transform: translateY(0);
+        background: #afcdff;
+    }
+}
+
+.powerChat .chatConversationWrapper .message.typingEventMessage .messageContent .messageContentInner .messageContentText .dotTyping.dotTyping1 {
+    animation: typingDots ease-in 1400ms infinite;
+}
+
+.powerChat .chatConversationWrapper .message.typingEventMessage .messageContent .messageContentInner .messageContentText .dotTyping.dotTyping2 {
+    animation: typingDots ease-in 1400ms infinite 300ms;
+}
+
+.powerChat .chatConversationWrapper .message.typingEventMessage .messageContent .messageContentInner .messageContentText .dotTyping.dotTyping3 {
+    animation: typingDots ease-in 1400ms infinite 600ms;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentFiles {
+    position: relative;
+    max-width: 200px;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentFiles .messageImgItem,
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentFiles .messageVideoItem {
+    display: inline-block;
+    position: relative;
+    margin: 0 2px 5px;
+    height: 50px;
+    width: 62px;
+    overflow: hidden;
+    background: #000;
+    cursor: pointer;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentFiles .messageImgItem:first-child,
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentFiles .messageVideoItem:first-child {
+    width: 190px;
+    height: 100px;
+    display: block;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentFiles .messageVideoItem i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    line-height: 30px;
+    color: #fff;
+    display: inline-block;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentFiles .messageImgItem img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100% !important;
+    height: auto !important;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentDate {
+    position: relative;
+    font-size: 10px;
+    line-height: 16px;
+    white-space: nowrap;
+    color: #ffffff6e;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentDate .messageSeenStatus {
+    position: relative;
+    padding: 0 0 0 5px;
+}
+
+.powerChat .chatConversationWrapper .message .messageContent .messageContentInner .messageContentDate .messageSeenStatus[data-seen='1'] {
+    color: #10cadf;
+}
+
+.powerChat .chatConversationWrapper .message.messageClient .messageContent .messageContentInner .messageContentDate {
+    color: #595959;
+}
+
+.powerChat .chatFooter {
+    position: relative;
+    height: calc(70px);
+    z-index: 10;
+}
+
+.powerChat .chatNewMessageWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper {
+    width: 60px;
+    background: #f5f5f5;
+    padding-right: 0;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 500px;
+    max-width: calc(100vw - 2px);
+    height: 100px;
+    z-index: 999;
+    background: #fff;
+    overflow-y: clip;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    display: none;
+    vertical-align: top;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner.show {
+    display: block !important;
+    box-shadow: 0 0 12px -5px rgba(0, 0, 0, 1);
+}
+
+@keyframes uploading {
+    0% {
+        background-position: 30% 0;
+    }
+    99.9% {
+        background-position: -340% 0;
+    }
+    100% {
+        background-position: 30% 0;
+    }
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner.uploading:after {
+    z-index: 99999;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), rgb(0 90 255 / 0%), rgb(255 255 255));
+    background-repeat: repeat-x;
+    background-position: 340% 0;
+    background-size: 200% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    display: block;
+    backdrop-filter: blur(3px);
+    animation: uploading 2070ms linear infinite;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner.uploading:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    text-shadow: 0 0 3px #aaa;
+    content: "Sending files..";
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    line-height: 20px;
+    z-index: 999999;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner .btnSelectAddMoreFiles {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    margin: 0 5px;
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    overflow: clip;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: top;
+    text-align: center;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner .btnSelectAddMoreFiles > i {
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+    line-height: 0;
+    font-size: 40px;
+    color: #adadad;
+    top: calc(50% + 2px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner .fileItem {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    margin: 0 5px;
+    vertical-align: top;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner .fileItem .preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: clip;
+    border-radius: 10px;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner .fileItem .preview > img {
+    width: auto;
+    height: 120%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner .fileItem .actions {
+    width: 100%;
+    text-align: right;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 50ms linear;
+    top: 0;
+    padding: 0;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner .fileItem:hover .actions {
+    opacity: 1;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner .fileItem .actions a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    margin: 0 0 0 5px;
+    text-align: center;
+    line-height: 0;
+    background: #fff;
+    border-radius: 50px;
+    overflow: hidden;
+    font-size: 0;
+    padding: 0 !important;
+    white-space: nowrap;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner .fileItem .actions a i {
+    font-size: 18px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner .fileItem .actions a.deleteFileBtn,
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner .fileItem .actions a.closeFilebtn {
+    color: #d40000;
+    /* display: none; */
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner .fileItem .actions a.deleteFileBtn.show,
+.powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner .fileItem .actions a.closeFilebtn.show {
+    display: inline-block;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper #selectfile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    visibility: hidden;
+    padding-top: none;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper a.btnSelectNewFiles {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: none;
+    background: #fff;
+    border-radius: 50%;
+    line-height: 0;
+    font-size: 0;
+    text-align: center;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper a.btnSelectNewFiles.show {
+    display: block !important;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper a.btnSelectNewFiles > i {
+    position: relative;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    display: block;
+    color: #005ff3;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper a.btnCancelAddingNewFiles {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: none;
+    background: #fff;
+    border-radius: 50%;
+    line-height: 0;
+    font-size: 0;
+    text-align: center;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper a.btnCancelAddingNewFiles.show {
+    display: block !important;
+}
+
+.powerChat .chatNewMessageWrapper .addFilesWrapper a.btnCancelAddingNewFiles > i {
+    position: relative;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    display: block;
+    color: #942500;
+    transform: rotate(45deg);
+}
+
+.powerChat .uploading .chatNewMessageWrapper .addFilesWrapper a.btnCancelAddingNewFiles.show {
+    display: none !important;
+}
+
+.powerChat .chatNewMessageWrapper .inputWrapper {
+    /* width: calc(100% - 150px); */
+    background: #f5f5f5;
+}
+
+.powerChat .chatNewMessageWrapper .chatSendWrapper {
+    width: 100px;
+    background: #f5f5f5;
+}
+
+.powerChat .newMessageInput {
+    position: absolute;
+    border-radius: 40px;
+    height: 50px;
+    width: calc(100% - 80px);
+    padding: 10px;
+    font-size: 18px;
+    line-height: 25px;
+    border: 1px solid #ddd;
+    background: #fff;
+    overflow: hidden;
+    display: none;
+}
+
+.powerChat .newMessageInput.show {
+    display: block;
+}
+
+.powerChat .btnSendThisMessage {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #7cafff, #0063ff, #0f6bff);
+    box-shadow: 0 0 12px 0 #0064ff5c;
+    color: #fff;
+    display: none;
+    font-size: 0;
+    line-height: 0;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.powerChat .btnSendThisMessage.show {
+    display: inline-block !important;
+}
+
+.powerChat .btnSendThisMessage i {
+    position: absolute;
+    display: block;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(16deg);
+    color: #fff;
+    font-size: 20px;
+    line-height: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+.powerChat .chatNewMessageWrapper .btnSendPreloadedFilesWrapper {
+    width: 60px;
+    background: #f5f5f5;
+    padding-left: 0;
+    display: none;
+}
+
+.powerChat .chatNewMessageWrapper .btnSendPreloadedFilesWrapper.show {
+    display: table-cell !important;
+}
+
+.powerChat .chatNewMessageWrapper .btnSendPreloadedFilesWrapper .btnSendPreloadedFiles {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: block;
+    background: #005ff3;
+    border-radius: 50%;
+    line-height: 0;
+    font-size: 0;
+    text-align: center;
+}
+
+.powerChat .chatNewMessageWrapper .btnSendPreloadedFilesWrapper .btnSendPreloadedFiles > i {
+    position: relative;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    display: block;
+    color: #fff;
+    transform: rotate(25deg);
+}
+
+.powerChat .uploading .chatNewMessageWrapper .btnSendPreloadedFilesWrapper .btnSendPreloadedFiles {
+    display: none !important;
+}
+
+.powerChat .conversationNotice {
+    position: relative;
+    padding: 10px;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+}
+
+.powerChat .introductionWrapper {
+    position: absolute;
+    top: 41px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999999999;
+    display: none;
+    background: #fff;
+}
+
+.powerChat .introductionWrapper.show {
+    display: table !important;
+}
+
+.powerChat .introductionWrapper .introductionContainer {
+    position: relative;
+    display: table-cell;
+    text-align: center;
+    vertical-align: top;
+    padding: 20px;
+    background: #fff;
+}
+
+.powerChat .introductionWrapper .introductionContainer p {
+    position: relative;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    padding: 0 0 20px;
+    margin: 0 0 20px;
+    border-bottom: 1px solid #ddd;
+    color: #616161;
+}
+
+.powerChat .introductionWrapper .introductionContainer p strong {
+    display: block;
+    font-size: 28px;
+    line-height: 44px;
+    color: #006bd1;
+}
+
+.powerChat .introductionWrapper .introductionContainer .introductionInner {
+    position: relative;
+    text-align: center;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.powerChat .introductionWrapper .introductionContainer .introductionInner .fieldGroup {
+    display: table-row;
+    position: relative;
+}
+
+.powerChat .introductionWrapper .introductionContainer .introductionInner .fieldGroup .fieldWrapper {
+    position: relative;
+    display: table-cell;
+}
+
+.powerChat .introductionWrapper .introductionContainer .introductionInner .label {
+    position: relative;
+    display: block;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 0 0 15px;
+    text-align: center;
+}
+
+.powerChat .introductionWrapper .introductionContainer .introductionInner .label strong {
+    position: relative;
+    color: red;
+    top: -5px;
+}
+
+.powerChat .introductionWrapper .introductionContainer .introductionInner .error {
+    display: none;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.powerChat .introductionWrapper .introductionContainer .introductionInner .error.show {
+    display: block !important;
+}
+
+.powerChat .introductionWrapper .introductionContainer .introductionInner input[type='text'],
+.powerChat .introductionWrapper .introductionContainer .introductionInner input[type='email'],
+.powerChat .introductionWrapper .introductionContainer .introductionInner input[type='number'],
+.powerChat .introductionWrapper .introductionContainer .introductionInner input[type='password'] {
+    position: relative;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #000;
+    padding: 15px 20px;
+    display: block;
+    box-sizing: border-box;
+    border-radius: 100px;
+    margin: 0 0 10px;
+    width: 100%;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1) inset;
+    text-align: center;
+}
+
+.powerChat .introductionWrapper .introductionContainer .introductionInner .introductionFirstName {
+    border-radius: 100px 0 0 100px !important;
+}
+
+.powerChat .introductionWrapper .introductionContainer .introductionInner .introductionLastName {
+    border-radius: 0 0 0 0 !important;
+}
+
+.powerChat .introductionWrapper .introductionContainer .introductionInner .introductionEmail {
+    border-radius: 0 100px 100px 0 !important;
+}
+
+.powerChat .introductionWrapper .btnIntroductionStartConversation {
+    position: relative;
+    display: block;
+    padding: 15px 20px;
+    background: #006bd1;
+    box-shadow: 0 2px 13px 0 #006bd16e;
+    border-radius: 100px;
+    text-align: center;
+    color: #fff;
+    font-size: 17px;
+    line-height: 20px;
+    margin: 20px 0 0;
+}
+
+.powerChatMediaPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 99999999999999;
+    display: none;
+}
+
+.powerChatMediaPopup.show {
+    display: block !important;
+}
+
+.powerChatMediaPopup .powerChatMediaPopupHeader {
+    position: absolute;
+    height: 60px;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.powerChatMediaPopup .powerChatMediaPopupHeader .btnClosePowerChatMediaPopup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    display: block;
+    box-shadow: 0 0 12px 2px rgb(0 0 0 / 28%);
+}
+
+.powerChatMediaPopup .powerChatMediaPopupHeader .btnClosePowerChatMediaPopup > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    line-height: 20px;
+    color: #fff;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.powerChatMediaPopup .powerChatMediaPopupBody {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    bottom: 90px;
+}
+
+.powerChatMediaPopup .powerChatMediaPopupBody > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+}
+
+.powerChatMediaPopup .powerChatMediaPopupBody > video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+}
+
+.powerChatMediaPopup .powerChatMediaPopupThumbnails {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    overflow-y: clip;
+    overflow-x: auto;
+    padding: 10px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.powerChatMediaPopup .powerChatMediaPopupThumbnails .powerChatPopupThumbnailItem {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 60px;
+    height: 60px;
+    overflow: clip;
+    border-radius: 10px;
+    background: #000;
+}
+
+.powerChatMediaPopup .powerChatMediaPopupThumbnails .powerChatPopupThumbnailItem.active {
+    box-shadow: 0 0 0 2px #000;
+}
+
+.powerChatMediaPopup .powerChatMediaPopupThumbnails .powerChatPopupThumbnailItem > img {
+    width: auto;
+    height: 170%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+.powerChatMediaPopup .powerChatMediaPopupThumbnails .powerChatPopupThumbnailItem > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    font-size: 40px;
+    line-height: 40px;
+    color: #fff;
+}
+
+.btnShowPowerChatFob,
+.btnShowPowerChatFob:hover,
+.btnShowPowerChatFob:active,
+.btnShowPowerChatFob:focus,
+.btnShowPowerChatFob:visited {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 999999;
+    background: #1da79b !important;
+    color: #fff;
+    box-shadow: 0 0 0 1px #00ff87 inset, 0 0 7px 2px #00dd8b00 inset !important;
+    border-radius: 50px;
+}
+
+.btnShowPowerChatFob i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: block;
+}
+
+.btnShowPowerChatFob .newMessagesCounter {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    background: red;
+    color: #fff;
+    font-size: 16px;
+    padding: 3px 9px;
+    border-radius: 30px;
+    display: inline-block;
+    box-shadow: 0 0 6px 0 red;
+}
+
+.btnShowPowerChatFob .newMessagesCounter[data-newmessages=''],
+.btnShowPowerChatFob .newMessagesCounter[data-newmessages='0'] {
+    display: none;
+}
