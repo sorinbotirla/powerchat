@@ -10,6 +10,7 @@ This chat provides Operators and Customers with the following functions:
 - automatic urls previews
 - filtering tracking parameters from urls
 - bidirectional sanitization
+- customer device profiling
 
 <img src="https://raw.githubusercontent.com/sorinbotirla/powerchat/refs/heads/main/screenshots/operator-chat.jpg" />
 <img src="https://raw.githubusercontent.com/sorinbotirla/powerchat/refs/heads/main/screenshots/client-chat.jpg" />
