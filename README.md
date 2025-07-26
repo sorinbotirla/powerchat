@@ -64,7 +64,8 @@ Of course, you will have to open the websocket desired port trough your firewall
 Operator chat will be available at https:// your url here / path to the <a href="https://github.com/sorinbotirla/powerchat/blob/main/index.php">index.php</a>?method=manageoperator<br />
 Customer chat will be available at https:// your url here / path to the client.html (you can replace later this path with your desired application if you plan to integrate it)
 
-In production you will need a second parameter called pwrsid and the value can be generated with $this->generatePowerSupportSid(); <br />
+In production you will need a second parameter called pwrsid and the value<br />
+can be generated with $this->generatePowerSupportSid(); <br />
 Then remove the following line from the "manageoperator" clause, in index.php<br />
 <strong>$request["pwrsid"] = $this->generatePowerSupportSid();</strong><br />
 
