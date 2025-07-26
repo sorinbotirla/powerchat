@@ -7,6 +7,8 @@ This chat provides Operators and Customers with the following functions:
 - logging messages
 - persistent messages on refresh
 - customers can respond from the emails and come back to chat
+- automatic urls previews
+- filtering tracking parameters from urls
 
 <img src="https://raw.githubusercontent.com/sorinbotirla/powerchat/refs/heads/main/screenshots/operator-chat.jpg" />
 <img src="https://raw.githubusercontent.com/sorinbotirla/powerchat/refs/heads/main/screenshots/client-chat.jpg" />
