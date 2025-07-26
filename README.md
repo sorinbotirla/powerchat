@@ -25,7 +25,7 @@ This chat provides Operators and Customers with the following functions:
 </table>
 
 
-Check the screenshots folder for more.
+Check the <a href="https://github.com/sorinbotirla/powerchat/tree/main/screenshots">screenshots folder</a> for more.
 
 
 <h2>Setting up</h2>
