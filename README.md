@@ -44,7 +44,7 @@ this is the websocket server file, written in Python. Change the port, timezone,
 this file is a watchdog that checks if the websocket server is still running. It will restart it automatically if you add this script to your cron for every minute.<br />
 Change the cd path to the folder where the websocket python script is located. This file will also restart the websocket server at 3:00 AM to clear eventual overhead.
 
-<h3><a href="https://github.com/sorinbotirla/powerchat/blob/main/client.js">assets/js/client.js</a> and <a href="https://github.com/sorinbotirla/powerchat/blob/main/operator.js">assets/js/operator.js</a></h3>
+<h3><a href="https://github.com/sorinbotirla/powerchat/blob/main/assets/js/client.js">assets/js/client.js</a> and <a href="https://github.com/sorinbotirla/powerchat/blob/main/assets/js/operator.js">assets/js/operator.js</a></h3>
 these files are used for the customer and operator chat. You'll need to change the <br />
 _self.websocketUrl, // url for the websocket server (just the domain)<br />
 _self.apiUrl, // url for your chat <a href="https://github.com/sorinbotirla/powerchat/blob/main/index.php">index.php</a> (API file)<br />
