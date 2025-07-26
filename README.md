@@ -11,6 +11,7 @@ This chat provides Operators and Customers with the following functions:
 - filtering tracking parameters from urls
 - bidirectional sanitization
 - customer device profiling
+- responsive customer chat
 
 <table>
   <td>
