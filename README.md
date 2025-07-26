@@ -59,3 +59,12 @@ A SSL Certificate (.crt) and Key (.key) You'll get them from your host provider 
 <br /><br />
 Of course, you will have to open the websocket desired port trough your firewall if you have one.
 
+<h3>Testing</h3>
+Operator chat will be available at https:// your url here / path to the index.php?method=manageoperator<br />
+Customer chat will be available at https:// your url here / path to the client.html (you can replace later this path with your desired application if you plan to integrate it)
+
+In production you will need a second parameter called pwrsid and the value can be generated with $this->generatePowerSupportSid(); <br />
+Then remove the following line from the "manageoperator" clause, in index.php<br />
+<strong>$request["pwrsid"] = $this->generatePowerSupportSid();</strong><br />
+
+Of course, feel free to change this with your own protection measures
