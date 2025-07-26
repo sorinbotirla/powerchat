@@ -12,8 +12,17 @@ This chat provides Operators and Customers with the following functions:
 - bidirectional sanitization
 - customer device profiling
 
-<img src="https://raw.githubusercontent.com/sorinbotirla/powerchat/refs/heads/main/screenshots/operator-chat.jpg" />
-<img src="https://raw.githubusercontent.com/sorinbotirla/powerchat/refs/heads/main/screenshots/client-chat.jpg" />
+<table>
+  <td>
+    <h3>Operator chat</h3>
+    <img src="https://raw.githubusercontent.com/sorinbotirla/powerchat/refs/heads/main/screenshots/operator-chat.jpg" />
+  </td>
+  <td>
+    <h3>Customer chat</h3>
+    <img src="https://raw.githubusercontent.com/sorinbotirla/powerchat/refs/heads/main/screenshots/client-chat.jpg" />
+  </td>
+</table>
+
 
 Check the screenshots folder for more.
 
