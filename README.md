@@ -34,4 +34,18 @@ this file is a watchdog that checks if the websocket server is still running. It
 Change the cd path to the folder where the websocket python script is located. This file will also restart the websocket server at 3:00 AM to clear eventual overhead.
 
 <h3>assets/js/client.js and assets/js/operator.js</h3>
-these files are used for the customer and operator chat. You'll need to change the _self.websocketUrl, _self.apiUrl, _self.operatorAvatarUrl, _self.attachmentsUrl, _self.websocketPort to your desired configuration.
+these files are used for the customer and operator chat. You'll need to change the 
+_self.websocketUrl, // url for the websocket server (just the domain)
+_self.apiUrl, // url for your chat index.php (API file)
+_self.operatorAvatarUrl, // the url for the operator avatar, it can be like https://yourdomain/assets/img/operator-avatar.png
+_self.attachmentsUrl, // the url for the attachments folder
+_self.websocketPort // the port for the websocket server, ex 5678
+to your desired configuration.
+You have an avatar icon in assets/img but you can use your own for the operators.
+
+<h3>Requirements and dependencies</h3>
+PHP 5.6 (minimum), MySQL, Python 3, Websockets and Pytz (it will scream for dependencies anyway when you try to run it).
+A SSL Certificate (.crt) and Key (.key) You'll get them from your host provider and even Let's Encrypt works. Just set up the path for them in the python script. Otherwise the websocket server won't work.
+
+Of course, you will have to open the websocket desired port trough your firewall if you have one.
+
