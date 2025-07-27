@@ -1,3 +1,21 @@
+<h1>PowerChat</h1>
+<br />
+<table>
+  <td>
+    <h3>Operator chat</h3>
+    <img src="https://raw.githubusercontent.com/sorinbotirla/powerchat/refs/heads/main/screenshots/operator-chat.jpg" />
+  </td>
+  <td>
+    <h3>Customer chat</h3>
+    <img src="https://raw.githubusercontent.com/sorinbotirla/powerchat/refs/heads/main/screenshots/client-chat.jpg" />
+  </td>
+</table>
+<br />
+
+Check the <a href="https://github.com/sorinbotirla/powerchat/tree/main/screenshots">screenshots folder</a> for more.
+<br />
+<br />
+
 This chat provides Operators and Customers with the following functions:
 - images and videos upload
 - multiple operators
@@ -12,24 +30,11 @@ This chat provides Operators and Customers with the following functions:
 - bidirectional sanitization
 - customer device profiling
 - responsive customer chat
-
-<table>
-  <td>
-    <h3>Operator chat</h3>
-    <img src="https://raw.githubusercontent.com/sorinbotirla/powerchat/refs/heads/main/screenshots/operator-chat.jpg" />
-  </td>
-  <td>
-    <h3>Customer chat</h3>
-    <img src="https://raw.githubusercontent.com/sorinbotirla/powerchat/refs/heads/main/screenshots/client-chat.jpg" />
-  </td>
-</table>
-
-
-Check the <a href="https://github.com/sorinbotirla/powerchat/tree/main/screenshots">screenshots folder</a> for more.
+<br />
+<br />
 
 
 <h2>Setting up</h2>
-
 you'll need to set up a few things like database configurations for the conversations and messages storage,
 websocket configuration for real time messaging.
 
@@ -53,14 +58,17 @@ _self.attachmentsUrl, // the url for the attachments folder<br />
 _self.websocketPort // the port for the websocket server, ex 5678<br />
 to your desired configuration.<br />
 You have an avatar icon in assets/img but you can use your own for the operators.<br />
+<br />
+<br />
 
-<h3>Requirements and dependencies</h3>
+<h2>Requirements and dependencies</h2>
+
 PHP 5.6 (minimum), MySQL, Python 3, Websockets and Pytz (it will scream for dependencies anyway when you try to run it).<br />
 A SSL Certificate (.crt) and Key (.key) You'll get them from your host provider and even Let's Encrypt works. Just set up the path for them in the python script. Otherwise the websocket server won't work.
 <br /><br />
 Of course, you will have to open the websocket desired port trough your firewall if you have one.
 
-<h3>Testing</h3>
+<h2>Testing</h2>
 Operator chat will be available at https:// your url here / path to the <a href="https://github.com/sorinbotirla/powerchat/blob/main/index.php">index.php</a>?method=manageoperator<br />
 Customer chat will be available at https:// your url here / path to the client.html (you can replace later this path with your desired application if you plan to integrate it)
 
