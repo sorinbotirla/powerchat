@@ -66,8 +66,8 @@ You have an avatar icon in assets/img but you can use your own for the operators
 
 <h2>Requirements and dependencies</h2>
 
-<a href="https://github.com/sorinbotirla/powerchat/blob/main/index.php">index.php</a> requires <strong>PHP</strong> (5.6 minimum), <strong>MySQL</strong><br />
-<a href="https://github.com/sorinbotirla/powerchat/blob/main/powerchat_websocket_server.py">powerchat_websocket_server.py</a> requires <strong>Python 3</strong>, <strong>Websockets</strong> and <strong>Pytz</strong> (<strong>AsincIO</strong> is included as a standard library starting with Python 3.36) (it will scream for dependencies anyway when you try to run it).<br />
+<a href="https://github.com/sorinbotirla/powerchat/blob/main/index.php">index.php</a> requires <strong>PHP</strong> (>= 5.6), <strong>MySQL</strong><br />
+<a href="https://github.com/sorinbotirla/powerchat/blob/main/powerchat_websocket_server.py">powerchat_websocket_server.py</a> requires <strong>Python 3</strong>, <strong>Websockets</strong> and <strong>Pytz</strong>, (<strong>AsyncIO</strong> is included as a standard library starting with Python 3.36) (it will scream for dependencies anyway when you try to run it).<br />
 The websicket setrver requires a SSL Certificate (.crt) and Key (.key) You'll get them from your host provider and even Let's Encrypt works. Just set up the path for them in the python script. Otherwise the websocket server won't work. If you run cPanel you can find them in the /home/yourcpaneluser/ssl folder. 
 <br /><br />
 Of course, you will have to open the websocket desired port trough your firewall if you have one.
