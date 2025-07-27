@@ -17,18 +17,21 @@ Check the <a href="https://github.com/sorinbotirla/powerchat/tree/main/screensho
 <br />
 
 This chat provides Operators and Customers with the following functions:
-- images and videos upload
-- multiple operators
+- websockets for real time messaging
+- images and videos upload (including drag & drop)
+- multiple operators can handle multiple customers
+- leaving chat / joining chat info
 - marking messages as seen
 - typing events
-- offline replies via email
-- logging messages
+- when the customers leave the chat, operators can reply via email
+- customers can respond from the emails and come back to chat continuing the conversation
+- logging messages in mysql database
 - persistent messages on refresh
-- customers can respond from the emails and come back to chat
+- persistent customer sessions
 - automatic urls previews
 - filtering tracking parameters from urls
 - bidirectional sanitization
-- customer device profiling
+- customer device profiling (os, browser, device)
 - responsive customer chat
 <br />
 <br />
@@ -70,7 +73,9 @@ Of course, you will have to open the websocket desired port trough your firewall
 
 <h2>Testing</h2>
 Operator chat will be available at https:// your url here / path to the <a href="https://github.com/sorinbotirla/powerchat/blob/main/index.php">index.php</a>?method=manageoperator<br />
-Customer chat will be available at https:// your url here / path to the client.html (you can replace later this path with your desired application if you plan to integrate it)
+Customer chat will be available at https:// your url here / path to the client.html (you can replace later this path with your desired application if you plan to integrate it)<br />
+If you use the chat with multiple operators, handle the operator name change yourself. The default name is Operator.<br />
+Customers are required to write their names and email addresses to join the chat. Make sure you change the Terms and Conditions URL of the agreement checkbox.
 
 In production you will need a second parameter called pwrsid and the value<br />
 can be generated with $this->generatePowerSupportSid(); <br />
