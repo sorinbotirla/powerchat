@@ -26,6 +26,7 @@ var OperatorChat = function(){
     var $body = $("body");
     _self.waiters = {};
     _self.repeaters = {};
+    _self.timeZone = "ro-RO";
     _self.websocketUrl = ""; // THE WEBSOCKET SERVER URL
     _self.apiUrl = ""; // THE index.php URL
     _self.attachmentsUrl = ""; // THE attachments folder URL
@@ -337,7 +338,7 @@ var OperatorChat = function(){
         }
     };
 
-    _self.timeAgoRO = function(ms) {
+    _self.timeAgoEN = function(ms) {
         const now = new Date();
         const then = new Date(ms);
 
@@ -348,17 +349,17 @@ var OperatorChat = function(){
         const diffMs = nowMidnight - thenMidnight;
         const diffDay = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
-        // For "Astazi", "Ieri", etc.
-        if (diffDay === 0) return "Astazi";
-        if (diffDay === 1) return "Ieri";
-        if (diffDay === 2) return "Acum doua zile";
-        if (diffDay < 7) return "Acum "+diffDay+" zile";
-        if (diffDay < 14) return "Saptamana trecuta";
-        if (diffDay < 30) return "Acum "+Math.floor(diffDay / 7)+" saptamani";
-        if (diffDay < 60) return "Luna trecuta";
-        if (diffDay < 365) return "Acum "+Math.floor(diffDay / 30)+" luni";
-        if (diffDay < 730) return "Anul trecut";
-        return "Acum "+Math.floor(diffDay / 365)+" ani";
+        // For "Today", "Yesterday", etc.
+        if (diffDay === 0) return "Today";
+        if (diffDay === 1) return "Yesterday";
+        if (diffDay === 2) return "2 days ago";
+        if (diffDay < 7) return diffDay+" days ago";
+        if (diffDay < 14) return "Last week";
+        if (diffDay < 30) return Math.floor(diffDay / 7)+" weeks ago";
+        if (diffDay < 60) return "Last month";
+        if (diffDay < 365) return Math.floor(diffDay / 30)+" months ago";
+        if (diffDay < 730) return "Last year";
+        return Math.floor(diffDay / 365)+" years ago";
     };
 
     _self.sanitize = function(str) {
@@ -946,19 +947,19 @@ var OperatorChat = function(){
                     switch(message["comm"]){
                         case "newMessage":
                             if ("undefined" != typeof message["data"]["uuid"] && "undefined" != typeof message["data"]["clientname"]) {
-                                _self.renderMessage(message["data"]["uuid"], message["data"]["clientname"], message["data"]["message"], "Client", "Client", new Date().toLocaleString("ro-RO"), ("undefined" != typeof message["data"]["files"]) ? message["data"]["files"] : "", ("undefined" != typeof message["data"]["seen"] && 1 == message["data"]["seen"]) ? message["data"]["seen"] : 0, ("undefined" != typeof message["data"]["emailed"] && 1 == message["data"]["emailed"]) ? message["data"]["emailed"] : 0);
+                                _self.renderMessage(message["data"]["uuid"], message["data"]["clientname"], message["data"]["message"], "Client", "Client", new Date().toLocaleString( _self.timeZone), ("undefined" != typeof message["data"]["files"]) ? message["data"]["files"] : "", ("undefined" != typeof message["data"]["seen"] && 1 == message["data"]["seen"]) ? message["data"]["seen"] : 0, ("undefined" != typeof message["data"]["emailed"] && 1 == message["data"]["emailed"]) ? message["data"]["emailed"] : 0);
                                 _self.handleUnreadMessages(message["data"]["uuid"], function(resp){
                                     _self.renderUnreadMessages(resp);
                                 });
                             } else if ("undefined" != typeof message["data"]["uuid"] && "undefined" != typeof message["data"]["attr"] && "operator" == message["data"]["attr"] && "undefined" != typeof message["data"]["operator"]) {
-                                _self.renderMessage(message["data"]["uuid"], message["data"]["operator"], message["data"]["message"], "Operator", "Operator", new Date().toLocaleString("ro-RO"), ("undefined" != typeof message["data"]["files"]) ? message["data"]["files"] : "", ("undefined" != typeof message["data"]["seen"] && 1 == message["data"]["seen"]) ? message["data"]["seen"] : 0, ("undefined" != typeof message["data"]["emailed"] && 1 == message["data"]["emailed"]) ? message["data"]["emailed"] : 0);
+                                _self.renderMessage(message["data"]["uuid"], message["data"]["operator"], message["data"]["message"], "Operator", "Operator", new Date().toLocaleString( _self.timeZone), ("undefined" != typeof message["data"]["files"]) ? message["data"]["files"] : "", ("undefined" != typeof message["data"]["seen"] && 1 == message["data"]["seen"]) ? message["data"]["seen"] : 0, ("undefined" != typeof message["data"]["emailed"] && 1 == message["data"]["emailed"]) ? message["data"]["emailed"] : 0);
                                 _self.handleUnreadMessages(message["data"]["uuid"], function(resp){
                                     _self.renderUnreadMessages(resp);
                                 });
                             }
                             break;
                         case "clientConnected":
-                            _self.renderChatNotice(message["data"]["message"], new Date().toLocaleString("ro-RO"));
+                            _self.renderChatNotice(message["data"]["message"], new Date().toLocaleString( _self.timeZone));
                             if ("undefined" != typeof message["data"]["uuid"] && "undefined" != typeof message["data"]["clientemail"]) {
                                 _self.handleClientConnect(message["data"]["uuid"], message["data"]["clientemail"], function(){
                                     console.log("Connect", message);
@@ -966,7 +967,7 @@ var OperatorChat = function(){
                             }
                             break;
                         case "clientDisconnected":
-                            _self.renderChatNotice(message["data"]["message"], new Date().toLocaleString("ro-RO"));
+                            _self.renderChatNotice(message["data"]["message"], new Date().toLocaleString( _self.timeZone));
                             if ("undefined" != typeof message["data"]["uuid"] && "undefined" != typeof message["data"]["clientemail"]) {
                                 _self.handleClientDisconnect(message["data"]["uuid"], message["data"]["clientemail"], function(){
                                     console.log("Disconnect", message);
@@ -1711,7 +1712,7 @@ var OperatorChat = function(){
                                 }
                             }
                             $conversationsListHtml += "</div>";
-                            $conversationsListHtml += "<div class='lastMessageDate'>" + (("Astazi" == _self.timeAgoRO(conversation["lastmessage"]["created"])) ? "Astazi, "+(_self.sanitize(new Date(parseFloat(conversation["lastmessage"]["created"])).toLocaleTimeString("ro-RO").split(":")[0])+":"+_self.sanitize(new Date(parseFloat(conversation["lastmessage"]["created"])).toLocaleTimeString("ro-RO").split(":")[1])) : _self.sanitize(new Date(parseFloat(conversation["lastmessage"]["created"])).toLocaleDateString("ro-RO") +", "+(_self.sanitize(new Date(parseFloat(conversation["lastmessage"]["created"])).toLocaleTimeString("ro-RO").split(":")[0])+":"+_self.sanitize(new Date(parseFloat(conversation["lastmessage"]["created"])).toLocaleTimeString("ro-RO").split(":")[1])))) + "</div>";
+                            $conversationsListHtml += "<div class='lastMessageDate'>" + (("Today" == _self.timeAgoEN(conversation["lastmessage"]["created"])) ? "Today, "+(_self.sanitize(new Date(parseFloat(conversation["lastmessage"]["created"])).toLocaleTimeString( _self.timeZone).split(":")[0])+":"+_self.sanitize(new Date(parseFloat(conversation["lastmessage"]["created"])).toLocaleTimeString( _self.timeZone).split(":")[1])) : _self.sanitize(new Date(parseFloat(conversation["lastmessage"]["created"])).toLocaleDateString( _self.timeZone) +", "+(_self.sanitize(new Date(parseFloat(conversation["lastmessage"]["created"])).toLocaleTimeString( _self.timeZone).split(":")[0])+":"+_self.sanitize(new Date(parseFloat(conversation["lastmessage"]["created"])).toLocaleTimeString( _self.timeZone).split(":")[1])))) + "</div>";
                         } else {
                             $conversationsListHtml += "<div class='lastMessageWrapper' data-haslastmessage='0'></div>";
                             $conversationsListHtml += "<div class='lastMessageDate'></div>";
@@ -1843,7 +1844,7 @@ var OperatorChat = function(){
                 ) {
                     // console.log("rendering message", messageObj);
                     var mClassType = ("Client" == messageObj["author"]) ? "Client" : "Operator",
-                        time = new Date(parseFloat(messageObj["created"])).toLocaleString("ro-RO");
+                        time = new Date(parseFloat(messageObj["created"])).toLocaleString( _self.timeZone);
 
                     if (messageObj["author"] == "Client" && "string" == typeof messageObj["clientname"] && _self.isBase64(messageObj["clientname"])) {
                         messageObj["author"] = _self.sanitize(messageObj["clientname"]);
