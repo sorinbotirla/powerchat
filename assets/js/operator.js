@@ -66,6 +66,31 @@ var OperatorChat = function(){
         }
     };
     _self.lastConversationsData = [];
+
+    _self.timeAgoEN = function(ms) {
+        const now = new Date();
+        const then = new Date(ms);
+
+        // Normalize to local midnight to avoid time-of-day issues
+        const nowMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const thenMidnight = new Date(then.getFullYear(), then.getMonth(), then.getDate());
+
+        const diffMs = nowMidnight - thenMidnight;
+        const diffDay = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+        // For "Today", "Yesterday", etc.
+        if (diffDay === 0) return "Today";
+        if (diffDay === 1) return "Yesterday";
+        if (diffDay === 2) return "2 days ago";
+        if (diffDay < 7) return diffDay+" days ago";
+        if (diffDay < 14) return "Last week";
+        if (diffDay < 30) return Math.floor(diffDay / 7)+" weeks ago";
+        if (diffDay < 60) return "Last month";
+        if (diffDay < 365) return Math.floor(diffDay / 30)+" months ago";
+        if (diffDay < 730) return "Last year";
+        return Math.floor(diffDay / 365)+" years ago";
+    };
+    
     _self.uuid = function() {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
             var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -336,30 +361,6 @@ var OperatorChat = function(){
         if (!!window.opener) {
             window.opener.postMessage(msg, '*');
         }
-    };
-
-    _self.timeAgoEN = function(ms) {
-        const now = new Date();
-        const then = new Date(ms);
-
-        // Normalize to local midnight to avoid time-of-day issues
-        const nowMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-        const thenMidnight = new Date(then.getFullYear(), then.getMonth(), then.getDate());
-
-        const diffMs = nowMidnight - thenMidnight;
-        const diffDay = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-
-        // For "Today", "Yesterday", etc.
-        if (diffDay === 0) return "Today";
-        if (diffDay === 1) return "Yesterday";
-        if (diffDay === 2) return "2 days ago";
-        if (diffDay < 7) return diffDay+" days ago";
-        if (diffDay < 14) return "Last week";
-        if (diffDay < 30) return Math.floor(diffDay / 7)+" weeks ago";
-        if (diffDay < 60) return "Last month";
-        if (diffDay < 365) return Math.floor(diffDay / 30)+" months ago";
-        if (diffDay < 730) return "Last year";
-        return Math.floor(diffDay / 365)+" years ago";
     };
 
     _self.sanitize = function(str) {
