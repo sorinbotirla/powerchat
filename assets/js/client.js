@@ -18,12 +18,9 @@ function hexDecode(hexStr) {
 
 
 var ClientChat = function(){
-    if ("undefined" == typeof $2) {
-        var $2 = jQuery.noConflict();
-    }
-    $2.support.cors = true;
+    $.support.cors = true;
     var _self = this;
-    var $body = $2("body");
+    var $body = $("body");
     _self.waiters = {};
     _self.repeaters = {};
     _self.websocketUrl = ""; // change this
@@ -75,10 +72,10 @@ var ClientChat = function(){
 
     _self.adjustChatScrollArea = function() {
         const totalHeight = window.visualViewport.height;
-        const inputHeight = $2(".powerChat .chatFooter").outerHeight();
+        const inputHeight = $(".powerChat .chatFooter").outerHeight();
         const scrollableHeight = totalHeight - inputHeight;
 
-        $2(".powerChat .chatConversationWrapper").css("height", (scrollableHeight-20) + "px");
+        $(".powerChat .chatConversationWrapper").css("height", (scrollableHeight-20) + "px");
     };
 
     _self.safeSetItem = function(key, value) {
@@ -526,23 +523,23 @@ var ClientChat = function(){
             var $html = '<div id="dialog-confirm" title="'+question+'">';
             $html += '</div>';
 
-            if ($2("body").find("#dialog-confirm").length) {
-                $2("body").find("#dialog-confirm").remove();
+            if ($("body").find("#dialog-confirm").length) {
+                $("body").find("#dialog-confirm").remove();
             }
-            $2("body").append($html);
+            $("body").append($html);
 
-            if ("function" == typeof $2.fn.dialog) {
+            if ("function" == typeof $.fn.dialog) {
                 // console.log("Dialog opening");
-                $2("body").find("#dialog-confirm" ).dialog({
+                $("body").find("#dialog-confirm" ).dialog({
                     dialogClass: dialogClass,
                     resizable: false,
                     height: "auto",
                     width: 400,
                     closeOnEscape: false,
                     modal: true,
-                    position: [(($2(document).width()-302)/2),150],
+                    position: [(($(document).width()-302)/2),150],
                     create: function (event, ui) {
-                        $2(event.target).parent().css('position', 'fixed');
+                        $(event.target).parent().css('position', 'fixed');
                     },
                     buttons: [
                         {
@@ -552,7 +549,7 @@ var ClientChat = function(){
                                 if ("function" == typeof buttonNoFunction) {
                                     buttonNoFunction();
                                 }
-                                $2(this).dialog("close");
+                                $(this).dialog("close");
                             }
                         },
                         {
@@ -562,7 +559,7 @@ var ClientChat = function(){
                                 if ("function" == typeof buttonYesFunction) {
                                     buttonYesFunction();
                                 }
-                                $2(this).dialog("close");
+                                $(this).dialog("close");
                             }
                         }
                     ]
@@ -579,23 +576,23 @@ var ClientChat = function(){
             $html += '</div>';
             $html += '</div>';
 
-            if ($2("body").find("#dialog-form").length) {
-                $2("body").find("#dialog-form").remove();
+            if ($("body").find("#dialog-form").length) {
+                $("body").find("#dialog-form").remove();
             }
-            $2("body").append($html);
+            $("body").append($html);
 
-            if ("function" == typeof $2.fn.dialog) {
+            if ("function" == typeof $.fn.dialog) {
                 // console.log("Dialog opening");
-                $2("body").find("#dialog-form" ).dialog({
+                $("body").find("#dialog-form" ).dialog({
                     dialogClass: dialogClass,
                     resizable: false,
                     height: "auto",
                     width: 400,
                     closeOnEscape: false,
                     modal: true,
-                    position: [(($2(document).width()-302)/2),150],
+                    position: [(($(document).width()-302)/2),150],
                     create: function (event, ui) {
-                        $2(event.target).parent().css('position', 'fixed');
+                        $(event.target).parent().css('position', 'fixed');
                     },
                     buttons: [
                         {
@@ -605,7 +602,7 @@ var ClientChat = function(){
                                 if ("function" == typeof buttonNoFunction) {
                                     buttonNoFunction();
                                 }
-                                $2(this).dialog("close");
+                                $(this).dialog("close");
                             }
                         },
                         {
@@ -615,7 +612,7 @@ var ClientChat = function(){
                                 if ("function" == typeof buttonYesFunction) {
                                     buttonYesFunction();
                                 }
-                                $2(this).dialog("close");
+                                $(this).dialog("close");
                             }
                         }
                     ]
@@ -640,15 +637,15 @@ var ClientChat = function(){
         // if (_self.msgMaxCharacters > msg.length) {
         //     msg = msg+Array(parseInt(_self.msgMaxCharacters-msg.length,10)).join("*");
         // }
-        $2("body").find(".powerChatStatusmsgs .msg").remove();
-        $2("body").find(".powerChatStatusmsgs").prepend("<div id='row"+_self.lastRow+"' class='msg "+msgType+"' style='white-space: nowrap;'>"+msg+"</div>");
-        $2("body").find(".powerChatStatusmsgs .msg").addClass("show");
+        $("body").find(".powerChatStatusmsgs .msg").remove();
+        $("body").find(".powerChatStatusmsgs").prepend("<div id='row"+_self.lastRow+"' class='msg "+msgType+"' style='white-space: nowrap;'>"+msg+"</div>");
+        $("body").find(".powerChatStatusmsgs .msg").addClass("show");
 
         if ("undefined" != typeof _self.waiters.hideMsgTimeout){
             clearTimeout(_self.waiters.hideMsgTimeout)
         }
         _self.waiters.hideMsgTimeout = setTimeout(function(){
-            $2("body").find(".powerChatStatusmsgs .msg").removeClass("show");
+            $("body").find(".powerChatStatusmsgs .msg").removeClass("show");
         },3000);
     };
 
@@ -658,14 +655,14 @@ var ClientChat = function(){
         }
 
         if (start) {
-            $2("body").addClass("loading");
+            $("body").addClass("loading");
         } else {
-            $2("body").removeClass("loading");
+            $("body").removeClass("loading");
         }
     };
 
     _self.getTime = function(callback){
-        $2.ajax({
+        $.ajax({
             url: _self.apiUrl+"/",
             data: {
                 method: "gettime"
@@ -747,15 +744,15 @@ var ClientChat = function(){
 
     _self.notifyClientNewMessage = function(){
         var newMessages = 1;
-        if ($2("body").find(".btnShowPowerChatFob").length > 0) {
-            if ($2("body").find(".btnShowPowerChatFob .newMessagesCounter").length == 0) {
-                $2("body").find(".btnShowPowerChatFob").append("<span class='newMessagesCounter' data-newmessages='"+_self.sanitize(newMessages)+"'>"+_self.sanitize(newMessages)+"</span>");
+        if ($("body").find(".btnShowPowerChatFob").length > 0) {
+            if ($("body").find(".btnShowPowerChatFob .newMessagesCounter").length == 0) {
+                $("body").find(".btnShowPowerChatFob").append("<span class='newMessagesCounter' data-newmessages='"+_self.sanitize(newMessages)+"'>"+_self.sanitize(newMessages)+"</span>");
             } else {
-                if (!isNaN($2("body").find(".btnShowPowerChatFob .newMessagesCounter").attr("data-newmessages"))) {
-                    newMessages += parseInt($2("body").find(".btnShowPowerChatFob .newMessagesCounter").attr("data-newmessages"),10);
+                if (!isNaN($("body").find(".btnShowPowerChatFob .newMessagesCounter").attr("data-newmessages"))) {
+                    newMessages += parseInt($("body").find(".btnShowPowerChatFob .newMessagesCounter").attr("data-newmessages"),10);
                 }
-                $2("body").find(".btnShowPowerChatFob .newMessagesCounter").attr("data-newmessages", _self.sanitize(newMessages));
-                $2("body").find(".btnShowPowerChatFob .newMessagesCounter").text(_self.sanitize(newMessages));
+                $("body").find(".btnShowPowerChatFob .newMessagesCounter").attr("data-newmessages", _self.sanitize(newMessages));
+                $("body").find(".btnShowPowerChatFob .newMessagesCounter").text(_self.sanitize(newMessages));
             }
         }
     };
@@ -922,7 +919,7 @@ var ClientChat = function(){
 
     _self.logMessage = function(messageObj, callback) {
         // console.log("Logging message", messageObj);
-        $2.ajax({
+        $.ajax({
             url: _self.apiUrl + "/",
             data: {
                 method: "logmessage",
@@ -948,7 +945,7 @@ var ClientChat = function(){
     };
 
     _self.checkChatCustomer = function(email, customerId, callback){
-        $2.ajax({
+        $.ajax({
             url: _self.apiUrl + "/",
             data: {
                 method: "checkchatcustomer",
@@ -988,11 +985,11 @@ var ClientChat = function(){
             console.log("checking customer");
             _self.safeSetItem("pwrchatcnm", _self.sanitize(btoa(encodeURIComponent([window.customerData.data.custconfirstname, window.customerData.data.custconlastname].join(" ").trim()))));
             _self.safeSetItem("pwrchatcml", _self.sanitize(btoa(encodeURIComponent(window.customerData.data.custconemail))));
-            $2("body").find(".powerChat .introductionFirstName").val(_self.sanitize(window.customerData.data.custconfirstname)).attr("disabled", "disabled").attr("readonly", "readonly").css({"style": "pointer-events: none !importantl"});
-            $2("body").find(".powerChat .introductionLastName").val(_self.sanitize(window.customerData.data.custconlastname)).attr("disabled", "disabled").attr("readonly", "readonly").css({"style": "pointer-events: none !importantl"});
-            $2("body").find(".powerChat .introductionEmail").val(_self.sanitize(window.customerData.data.custconemail)).attr("disabled", "disabled").attr("readonly", "readonly").css({"style": "pointer-events: none !importantl"});
-            $2("body").find(".powerChat .introductionInner").hide();
-            $2("body").find(".powerChat .introductionContainer p").html("<strong>Salut</strong>");
+            $("body").find(".powerChat .introductionFirstName").val(_self.sanitize(window.customerData.data.custconfirstname)).attr("disabled", "disabled").attr("readonly", "readonly").css({"style": "pointer-events: none !importantl"});
+            $("body").find(".powerChat .introductionLastName").val(_self.sanitize(window.customerData.data.custconlastname)).attr("disabled", "disabled").attr("readonly", "readonly").css({"style": "pointer-events: none !importantl"});
+            $("body").find(".powerChat .introductionEmail").val(_self.sanitize(window.customerData.data.custconemail)).attr("disabled", "disabled").attr("readonly", "readonly").css({"style": "pointer-events: none !importantl"});
+            $("body").find(".powerChat .introductionInner").hide();
+            $("body").find(".powerChat .introductionContainer p").html("<strong>Salut</strong>");
             _self.checkChatCustomer(window.customerData.data.custconemail, window.customerData.data.customerid, function(resp){
                 if ("undefined" != typeof resp && "undefined" != typeof resp["data"]
                 && "undefined" != typeof resp["data"]["uuid"]
@@ -1028,7 +1025,7 @@ var ClientChat = function(){
             }
             if (!!_self.getUrlParameter("openchat")) {
                 _self.deleteUrlParameter("openchat");
-                $2("body").find(".btnShowPowerChatFob")[0].click();
+                $("body").find(".btnShowPowerChatFob")[0].click();
             }
             _self.pwrChatClientUUID = _self.sanitize(_self.safeGetItem("pwrchatclientuuid"));
 
@@ -1052,7 +1049,7 @@ var ClientChat = function(){
 
     _self.checkClientUUID = function(callback){
         // console.log("Checking uuid");
-        $2.ajax({
+        $.ajax({
             url: _self.apiUrl + "/",
             data: {
                 method: "checkclientuuid",
@@ -1120,8 +1117,8 @@ var ClientChat = function(){
     };
 
     _self.showIntroduction = function(callback){
-        $2("body").find(".powerChat .introductionWrapper").find(".introductionName").val("");
-        $2("body").find(".powerChat .introductionWrapper").addClass("show");
+        $("body").find(".powerChat .introductionWrapper").find(".introductionName").val("");
+        $("body").find(".powerChat .introductionWrapper").addClass("show");
     };
 
     _self.defaultMessage = function(callback){
@@ -1140,7 +1137,7 @@ var ClientChat = function(){
     };
 
     _self.renderChatNotice = function(message, time){
-        var $conversationWrapper = $2("body").find(".powerChat .chatConversationWrapper"),
+        var $conversationWrapper = $("body").find(".powerChat .chatConversationWrapper"),
             $noticeHtml = "<div class='conversationNotice'>"+_self.sanitize(message)+"</div>";
         $conversationWrapper.append($noticeHtml);
         if ("undefined" != typeof _self.waiters.scrollConversationToBottomTimeout) {
@@ -1159,7 +1156,7 @@ var ClientChat = function(){
         if ("undefined" == typeof seen) {
             var seen = 0;
         }
-        var $conversationWrapper = $2("body").find(".powerChat .chatConversationWrapper"),
+        var $conversationWrapper = $("body").find(".powerChat .chatConversationWrapper"),
             $messageHtml = "<div data-messageuuid='"+_self.sanitize(messageUuid)+"' class='message message"+_self.sanitize(mClassType.toString())+" table'>";
                 if ("Operator" == mClassType) {
                     $messageHtml += "<div class='messageAuthor td'>";
@@ -1213,7 +1210,7 @@ var ClientChat = function(){
 
         $conversationWrapper.append($messageHtml);
 
-        if (true == _self.focused && $2("body").find(".powerChat").hasClass("show")) {
+        if (true == _self.focused && $("body").find(".powerChat").hasClass("show")) {
             if ("undefined" != typeof _self.waiters.markAsSeenTimeout) {
                 clearTimeout(_self.waiters.markAsSeenTimeout);
             }
@@ -1253,7 +1250,7 @@ var ClientChat = function(){
     };
 
     _self.renderTypingEvent = function(author){
-        var $conversationWrapper = $2("body").find(".powerChat .chatConversationWrapper"),
+        var $conversationWrapper = $("body").find(".powerChat .chatConversationWrapper"),
             $messageHtml = "<div class='message messageOperator typingEventMessage table'>";
                 $messageHtml += "<div class='messageAuthor td'>";
                     $messageHtml += "<div class='messageAuthorAvatarWrapper'>";
@@ -1288,7 +1285,7 @@ var ClientChat = function(){
 
     _self.renderSeenEvent = function(uuid, callback){
         if ("undefined" != typeof uuid && uuid == _self.pwrChatClientUUID) {
-            $2("body").find(".powerChat .messageSeenStatus").attr("data-seen", '1');
+            $("body").find(".powerChat .messageSeenStatus").attr("data-seen", '1');
         }
         if ("function" == typeof callback) {
             callback();
@@ -1296,7 +1293,7 @@ var ClientChat = function(){
     };
 
     _self.scrollConversationToBottom = function(callback){
-        var $conversationWrapper = $2("body").find(".powerChat .chatConversationWrapper");
+        var $conversationWrapper = $("body").find(".powerChat .chatConversationWrapper");
         $conversationWrapper.stop().animate({
             scrollTop: $conversationWrapper[0].scrollHeight - $conversationWrapper[0].clientHeight
         },1);
@@ -1307,7 +1304,7 @@ var ClientChat = function(){
 
     _self.getConversationMessages = function(uuid, callback){
         if ("undefined" != typeof uuid) {
-            $2.ajax({
+            $.ajax({
                 url: _self.apiUrl + "/",
                 data: {
                     method: "getconversationmessages",
@@ -1334,7 +1331,7 @@ var ClientChat = function(){
     };
 
     _self.renderConversationMessages = function(data, callback) {
-        $2("body").find(".powerChat .powerChatConversationMessagesInner").empty();
+        $("body").find(".powerChat .powerChatConversationMessagesInner").empty();
         if ("undefined" != typeof data && "undefined" != typeof data["data"] && Array.isArray(data["data"]) && data["data"].length > 0) {
             var newMessages = 0;
             data["data"].forEach(function(messageObj, i){
@@ -1348,12 +1345,12 @@ var ClientChat = function(){
 
             console.log("newMessages", newMessages, data);
             if (newMessages > 0) {
-                if ($2("body").find(".btnShowPowerChatFob").length > 0) {
-                    if ($2("body").find(".btnShowPowerChatFob .newMessagesCounter").length == 0) {
-                        $2("body").find(".btnShowPowerChatFob").append("<span class='newMessagesCounter' data-newmessages='"+_self.sanitize(newMessages)+"'>"+_self.sanitize(newMessages)+"</span>");
+                if ($("body").find(".btnShowPowerChatFob").length > 0) {
+                    if ($("body").find(".btnShowPowerChatFob .newMessagesCounter").length == 0) {
+                        $("body").find(".btnShowPowerChatFob").append("<span class='newMessagesCounter' data-newmessages='"+_self.sanitize(newMessages)+"'>"+_self.sanitize(newMessages)+"</span>");
                     } else {
-                        $2("body").find(".btnShowPowerChatFob .newMessagesCounter").attr("data-newmessages", _self.sanitize(newMessages));
-                        $2("body").find(".btnShowPowerChatFob .newMessagesCounter").text(_self.sanitize(newMessages));
+                        $("body").find(".btnShowPowerChatFob .newMessagesCounter").attr("data-newmessages", _self.sanitize(newMessages));
+                        $("body").find(".btnShowPowerChatFob .newMessagesCounter").text(_self.sanitize(newMessages));
                     }
                 }
             }
@@ -1380,7 +1377,7 @@ var ClientChat = function(){
     };
 
     _self.getOnlineOperators = function(callback){
-        $2.ajax({
+        $.ajax({
             url: _self.apiUrl + "/",
             data: {
                 method: "getonlineoperators"
@@ -1409,20 +1406,20 @@ var ClientChat = function(){
         if ("undefined" != typeof data && "undefined" != typeof data["status"] && true == data["status"] && "undefined" != typeof data["data"] && !isNaN(data["data"]) && parseInt(data["data"],10) > 0) {
             // has online operators
             onlineOperators = true;
-            if ($2("body").find(".powerChat .chatBodyInner .operatorsOnlineMessageWrapper").length == 0) {
+            if ($("body").find(".powerChat .chatBodyInner .operatorsOnlineMessageWrapper").length == 0) {
                 // none
             } else {
-                $2("body").find(".powerChat .chatBodyInner .operatorsOnlineMessageWrapper").removeClass("noOperators").text("");
+                $("body").find(".powerChat .chatBodyInner .operatorsOnlineMessageWrapper").removeClass("noOperators").text("");
             }
-            $2("body").find(".powerChat .chatConversationWrapper").removeClass("noOperators");
+            $("body").find(".powerChat .chatConversationWrapper").removeClass("noOperators");
         } else {
             // no operators are online
-            if ($2("body").find(".powerChat .chatBodyInner .operatorsOnlineMessageWrapper").length == 0) {
-                $2("body").find(".powerChat .chatBodyInner").prepend("<div class='operatorsOnlineMessageWrapper noOperators'>"+_self.sanitize("Right now, none of our operators are online, please write a message and we will get back to you here and on your email as soon as possible.")+"</div>");
+            if ($("body").find(".powerChat .chatBodyInner .operatorsOnlineMessageWrapper").length == 0) {
+                $("body").find(".powerChat .chatBodyInner").prepend("<div class='operatorsOnlineMessageWrapper noOperators'>"+_self.sanitize("Right now, none of our operators are online, please write a message and we will get back to you here and on your email as soon as possible.")+"</div>");
             } else {
-                $2("body").find(".powerChat .chatBodyInner .operatorsOnlineMessageWrapper").addClass("noOperators").text(_self.sanitize("Right now, none of our operators are online, please write a message and we will get back to you here and on your email as soon as possible."));
+                $("body").find(".powerChat .chatBodyInner .operatorsOnlineMessageWrapper").addClass("noOperators").text(_self.sanitize("Right now, none of our operators are online, please write a message and we will get back to you here and on your email as soon as possible."));
             }
-            $2("body").find(".powerChat .chatConversationWrapper").addClass("noOperators");
+            $("body").find(".powerChat .chatConversationWrapper").addClass("noOperators");
         }
 
         if ("function" == typeof callback){
@@ -1452,7 +1449,7 @@ var ClientChat = function(){
     };
 
     _self.ajaxFileUpload = function($imgPreviewWrapper, callback) {
-        $2.ajax({
+        $.ajax({
             type: 'POST',
             beforeSend: function () {
 
@@ -1482,9 +1479,9 @@ var ClientChat = function(){
                                         && "undefined" != typeof file["storedname"]
                                         && "undefined" != typeof file["success"]
                                     ) {
-                                        if ($2("body").find($imgPreviewWrapper).find(".fileItem[data-filename='" + file["originalname"] + "']").length) {
-                                            $2("body").find($imgPreviewWrapper).find(".fileItem[data-filename='" + file["originalname"] + "']").each(function () {
-                                                var $fileItem = $2(this);
+                                        if ($("body").find($imgPreviewWrapper).find(".fileItem[data-filename='" + file["originalname"] + "']").length) {
+                                            $("body").find($imgPreviewWrapper).find(".fileItem[data-filename='" + file["originalname"] + "']").each(function () {
+                                                var $fileItem = $(this);
 
                                                 if (true == file["success"] && 0 == file["errors"].length) {
                                                     var reader = new FileReader();
@@ -1529,8 +1526,8 @@ var ClientChat = function(){
     _self.renderPreloadedFiles = function($imgPreviewWrapper, callback){
         var $filesHtml = "<a href='javascript:void(0);' class='btnSelectAddMoreFiles'><i class='fas fa-plus-circle'></i></a>",
             i = 0;
-        if ($2("body").find(".powerChat .uploadedFilesInner .fileLargePreviewWrapper").length > 0) {
-            $2("body").find(".powerChat .uploadedFilesInner .fileLargePreviewWrapper").remove();
+        if ($("body").find(".powerChat .uploadedFilesInner .fileLargePreviewWrapper").length > 0) {
+            $("body").find(".powerChat .uploadedFilesInner .fileLargePreviewWrapper").remove();
         }
 
         for (let [fileKey, fileObject] of _self.filesObjectToUpload.entries()) {
@@ -1585,11 +1582,11 @@ var ClientChat = function(){
 
         if (
             "undefined" != typeof $imgPreviewWrapper
-            && $2("body").find($imgPreviewWrapper).length > 0
+            && $("body").find($imgPreviewWrapper).length > 0
         ) {
-            $2("body").find($imgPreviewWrapper).html($filesHtml).addClass("show");
-            $2("body").find(".powerChat .addFilesWrapper a.btnSelectNewFiles, .powerChat .newMessageInput, .powerChat .btnSendThisMessage").removeClass("show");
-            $2("body").find(".powerChat .addFilesWrapper a.btnCancelAddingNewFiles, .chatNewMessageWrapper .btnSendPreloadedFilesWrapper").addClass("show");
+            $("body").find($imgPreviewWrapper).html($filesHtml).addClass("show");
+            $("body").find(".powerChat .addFilesWrapper a.btnSelectNewFiles, .powerChat .newMessageInput, .powerChat .btnSendThisMessage").removeClass("show");
+            $("body").find(".powerChat .addFilesWrapper a.btnCancelAddingNewFiles, .chatNewMessageWrapper .btnSendPreloadedFilesWrapper").addClass("show");
         }
 
         if ("function" == typeof callback) {
@@ -1619,16 +1616,16 @@ var ClientChat = function(){
 
     _self.removeAllPreloadedFiles = function($imgPreviewWrapper, callback){
         _self.filesObjectToUpload.delete("file[]");
-        var $el = $2("body").find('.powerChat #selectfile');
+        var $el = $("body").find('.powerChat #selectfile');
         $el.wrap('<form>').closest('form').get(0).reset();
         $el.unwrap();
         _self.renderPreloadedFiles($imgPreviewWrapper, callback);
     };
 
     _self.markAsSeen = function(callback){
-        if (true == _self.focused && $2("body").find(".powerChat").hasClass("show")) {
+        if (true == _self.focused && $("body").find(".powerChat").hasClass("show")) {
             console.log("markasseen");
-            $2.ajax({
+            $.ajax({
                 url: _self.apiUrl + "/",
                 data: {
                     method: "markasseen",
@@ -1685,7 +1682,7 @@ var ClientChat = function(){
         // console.log("Handling events");
         window.onfocus = function() {
             _self.focused = true;
-            if (null !== _self.pwrChatClientUUID && null !== _self.pwrChatClientEmail && null !== _self.pwrChatClientName && $2("body").find(".powerChat").hasClass("show")) {
+            if (null !== _self.pwrChatClientUUID && null !== _self.pwrChatClientEmail && null !== _self.pwrChatClientName && $("body").find(".powerChat").hasClass("show")) {
                 if ("undefined" != typeof _self.waiters.markAsSeenTimeout) {
                     clearTimeout(_self.waiters.markAsSeenTimeout);
                 }
@@ -1704,21 +1701,21 @@ var ClientChat = function(){
                 const height = window.visualViewport.height;
                 // Adjust scroll or reposition elements here
                 if (true == _self.isMobile) {
-                    $2("body").find(".powerChat").attr("style", "height: "+parseInt(height,10)+"px !important");
-                    if ($2("body").find(".powerChat").hasClass("show")) {
+                    $("body").find(".powerChat").attr("style", "height: "+parseInt(height,10)+"px !important");
+                    if ($("body").find(".powerChat").hasClass("show")) {
                         _self.adjustChatScrollArea();
-                        $2("html, body").attr("style", "height: "+parseInt(height,10)+"px !important");
+                        $("html, body").attr("style", "height: "+parseInt(height,10)+"px !important");
                         window.scrollTo(0, 0);
                     } else {
-                        $2("html, body").removeAttr("style");
+                        $("html, body").removeAttr("style");
                     }
                 }
             });
         }
 
-        $2("body").on("keydown", ".chatNewMessageWrapper textarea.newMessageInput", function(e){
-            var $inp = $2(this),
-                $parent = $2("body").find(".powerChat .chatNewMessageWrapper .inputWrapper"),
+        $("body").on("keydown", ".chatNewMessageWrapper textarea.newMessageInput", function(e){
+            var $inp = $(this),
+                $parent = $("body").find(".powerChat .chatNewMessageWrapper .inputWrapper"),
                 inpVal = $inp.val().toString().trim(),
                 emptyText = inpVal.replace(/(?:(?:\r\n|\r|\n)\s*){2}/gm, "");
             if((e.keyCode || e.which) == 13) { //Enter keycode
@@ -1755,8 +1752,8 @@ var ClientChat = function(){
             }
         });
 
-        $2("body").on("input blur", "input.introductionFirstName", function(){
-            var $inp = $2(this),
+        $("body").on("input blur", "input.introductionFirstName", function(){
+            var $inp = $(this),
                 $wrapper = $inp.closest(".fieldWrapper"),
                 inpVal = $inp.val().toString();
 
@@ -1771,8 +1768,8 @@ var ClientChat = function(){
             }
         });
 
-        $2("body").on("input blur", "input.introductionLastName", function(){
-            var $inp = $2(this),
+        $("body").on("input blur", "input.introductionLastName", function(){
+            var $inp = $(this),
                 $wrapper = $inp.closest(".fieldWrapper"),
                 inpVal = $inp.val().toString();
 
@@ -1787,8 +1784,8 @@ var ClientChat = function(){
             }
         });
 
-        $2("body").on("input", ".introductionEmail", function(){
-            var $inp = $2(this),
+        $("body").on("input", ".introductionEmail", function(){
+            var $inp = $(this),
                 $wrapper = $inp.closest(".fieldWrapper"),
                 inpVal = $inp.val().toString();
 
@@ -1797,8 +1794,8 @@ var ClientChat = function(){
             $inp.val(inpVal);
         });
 
-        $2("body").on("blur", "input.introductionEmail", function(){
-            var $inp = $2(this),
+        $("body").on("blur", "input.introductionEmail", function(){
+            var $inp = $(this),
                 $wrapper = $inp.closest(".fieldWrapper"),
                 inpVal = $inp.val().toString().toLowerCase().trim();
 
@@ -1811,9 +1808,9 @@ var ClientChat = function(){
             }
         });
 
-        $2("body").on("click", ".btnIntroductionStartConversation", function(e){
+        $("body").on("click", ".btnIntroductionStartConversation", function(e){
             e.preventDefault();
-            var $btn = $2(this),
+            var $btn = $(this),
 
                 $wrapper = $btn.closest(".introductionWrapper"),
                 $agreeInp = $wrapper.find("#agreegdprchat"),
@@ -1863,20 +1860,20 @@ var ClientChat = function(){
                 _self.pwrChatClientEmail = _self.safeGetItem("pwrchatcml");
                 _self.pwrChatClientColor = _self.safeGetItem("pwrchatclientcolor");
                 _self.initWebsocketServer(function(){
-                    $2("body").find(".powerChat .introductionWrapper").removeClass("show");
+                    $("body").find(".powerChat .introductionWrapper").removeClass("show");
                 });
             } else {
 
             }
         });
 
-        $2("body").on("click", ".btnSelectNewFiles, .btnSelectAddMoreFiles", function(e){
+        $("body").on("click", ".btnSelectNewFiles, .btnSelectAddMoreFiles", function(e){
             e.preventDefault();
-            $2("body").find(".powerChat #selectfile")[0].click();
+            $("body").find(".powerChat #selectfile")[0].click();
         });
-        $2("body").on("click", "#selectfile", function(e){
-            var $inp = $2(this),
-                $parent = $2("body").find(".powerChat .newMessageInput").parent();
+        $("body").on("click", "#selectfile", function(e){
+            var $inp = $(this),
+                $parent = $("body").find(".powerChat .newMessageInput").parent();
             $parent.empty();
             if ("undefined" != typeof _self.waiters.showTextareaTimeout){
                 clearTimeout(_self.waiters.showTextareaTimeout);
@@ -1887,31 +1884,31 @@ var ClientChat = function(){
             },10);
         });
 
-        $2("body").on("change", "#selectfile", function(e){
-            var $inp = $2(this);
+        $("body").on("change", "#selectfile", function(e){
+            var $inp = $(this);
             files = $inp[0].files;
             _self.filesPreload(files, ".addFilesWrapper .uploadedFilesThumbnailsInner");
         });
-        $2("body").on("click", ".btnCancelAddingNewFiles", function(e){
+        $("body").on("click", ".btnCancelAddingNewFiles", function(e){
            e.preventDefault();
-           var $btn = $2(this);
+           var $btn = $(this);
             _self.removeAllPreloadedFiles(".powerChat .addFilesWrapper .uploadedFilesThumbnailsInner", function(){
-                $2("body").find(".powerChat .addFilesWrapper .uploadedFilesThumbnailsInner, .powerChat .chatNewMessageWrapper .btnSendPreloadedFilesWrapper, .powerChat .btnCancelAddingNewFiles").removeClass("show");
-                $2("body").find(".powerChat .chatNewMessageWrapper .addFilesWrapper a.btnSelectNewFiles, .powerChat .newMessageInput, .powerChat .btnSendThisMessage").addClass("show");
+                $("body").find(".powerChat .addFilesWrapper .uploadedFilesThumbnailsInner, .powerChat .chatNewMessageWrapper .btnSendPreloadedFilesWrapper, .powerChat .btnCancelAddingNewFiles").removeClass("show");
+                $("body").find(".powerChat .chatNewMessageWrapper .addFilesWrapper a.btnSelectNewFiles, .powerChat .newMessageInput, .powerChat .btnSendThisMessage").addClass("show");
             });
         });
 
-        $2("body").on("click", ".btnSendPreloadedFiles", function(e){
+        $("body").on("click", ".btnSendPreloadedFiles", function(e){
             e.preventDefault();
-            var $btn = $2(this),
-                $chatFooter = $2("body").find(".powerChat .chatFooter"),
+            var $btn = $(this),
+                $chatFooter = $("body").find(".powerChat .chatFooter"),
                 $imgPreviewWrapper = ".powerChat .chatNewMessageWrapper .addFilesWrapper .uploadedFilesThumbnailsInner",
                 filesNames = [],
-                $inp = $2("body").find(".powerChat .newMessageInput"),
+                $inp = $("body").find(".powerChat .newMessageInput"),
                 $parent = $inp.closest(".inputWrapper"),
                 inpVal = $inp.val().toString().trim(),
                 emptyText = inpVal.replace(/(?:(?:\r\n|\r|\n)\s*){2}/gm, "");
-            $2($imgPreviewWrapper).addClass("uploading");
+            $($imgPreviewWrapper).addClass("uploading");
             $chatFooter.addClass("uploading");
             _self.ajaxFileUpload($imgPreviewWrapper, function(resp){
                 console.log("File upload response", resp);
@@ -1940,9 +1937,9 @@ var ClientChat = function(){
                             $parent.html('<textarea class="newMessageInput show" placeholder="Write your message here" rows="1" value="" data-msg="'+_self.sanitize(new Date().getTime())+'"></textarea><a href="javascript:void(0);" class="btnSendThisMessage show"><i class="fas fa-paper-plane"></i></a>');
                             $parent.find(".newMessageInput").focus();
                             _self.removeAllPreloadedFiles(".powerChat .addFilesWrapper .uploadedFilesThumbnailsInner", function(){
-                                $2("body").find(".powerChat .addFilesWrapper .uploadedFilesThumbnailsInner, .powerChat .chatNewMessageWrapper .btnSendPreloadedFilesWrapper, .powerChat .chatNewMessageWrapper .addFilesWrapper a.btnCancelAddingNewFiles").removeClass("show");
-                                $2("body").find(".powerChat .chatNewMessageWrapper .addFilesWrapper a.btnSelectNewFiles, .powerChat .newMessageInput, .powerChat .btnSendThisMessage").addClass("show");
-                                $2($imgPreviewWrapper).removeClass("uploading");
+                                $("body").find(".powerChat .addFilesWrapper .uploadedFilesThumbnailsInner, .powerChat .chatNewMessageWrapper .btnSendPreloadedFilesWrapper, .powerChat .chatNewMessageWrapper .addFilesWrapper a.btnCancelAddingNewFiles").removeClass("show");
+                                $("body").find(".powerChat .chatNewMessageWrapper .addFilesWrapper a.btnSelectNewFiles, .powerChat .newMessageInput, .powerChat .btnSendThisMessage").addClass("show");
+                                $($imgPreviewWrapper).removeClass("uploading");
                                 $chatFooter.removeClass("uploading");
                             });
                         },10);
@@ -1951,14 +1948,14 @@ var ClientChat = function(){
             });
         });
 
-        $2("body").on("click", ".uploadedFilesThumbnailsInner .fileItem .actions a.deleteFileBtn[data-storedname]", function(e){
+        $("body").on("click", ".uploadedFilesThumbnailsInner .fileItem .actions a.deleteFileBtn[data-storedname]", function(e){
             e.preventDefault();
-            var $btn = $2(this),
+            var $btn = $(this),
                 storedname = $btn.attr("data-storedname");
             _self.removePreloadedFile(storedname, ".addFilesWrapper .uploadedFilesThumbnailsInner");
         });
 
-        $2("body").on("click focus input", ".newMessageInput", function(e){
+        $("body").on("click focus input", ".newMessageInput", function(e){
             var $inp = $(this),
                 inpVal = $inp.val();
 
@@ -1978,16 +1975,16 @@ var ClientChat = function(){
             },100);
         });
 
-        $2("body").on("click", ".messageImgItem[data-imgsrc], .messageVideoItem[data-videosrc]", function(e){
+        $("body").on("click", ".messageImgItem[data-imgsrc], .messageVideoItem[data-videosrc]", function(e){
             e.preventDefault();
-            var $mediaItem = $2(this),
+            var $mediaItem = $(this),
                 $messageWrapper = $mediaItem.closest(".message")
                 mediaType = ("undefined" != typeof $mediaItem.attr("data-imgsrc")) ? "image" : "video",
                 mediaSrc = ("undefined" != typeof $mediaItem.attr("data-imgsrc")) ? $mediaItem.attr("data-imgsrc") : $mediaItem.attr("data-videosrc"),
                 mediaOptimizedSrc = ("undefined" != typeof $mediaItem.attr("data-imgsrc")) ? $mediaItem.find("img").attr("src") : "",
                 $mediaItems = $messageWrapper.find(".messageImgItem[data-imgsrc], .messageVideoItem[data-videosrc]");
 
-            if ($2("body").find(".powerChatMediaPopup").length == 0) {
+            if ($("body").find(".powerChatMediaPopup").length == 0) {
                 var $popupHtml = "<div class='powerChatMediaPopup show'>";
                         $popupHtml += "<div class='powerChatMediaPopupHeader'>";
                             $popupHtml += "<a href='javascript:void(0);' class='btnClosePowerChatMediaPopup'><i class='fa fa-times'></i></a>";
@@ -2001,7 +1998,7 @@ var ClientChat = function(){
                         $popupHtml += "</div>";
                         $popupHtml += "<div class='powerChatMediaPopupThumbnails'>";
                         $mediaItems.each(function(){
-                            var $mediaItem2 = $2(this),
+                            var $mediaItem2 = $(this),
                                 mediaType2 = ("undefined" != typeof $mediaItem2.attr("data-imgsrc")) ? "image" : "video",
                                 mediaSrc2 = ("undefined" != typeof $mediaItem2.attr("data-imgsrc")) ? $mediaItem2.attr("data-imgsrc") : $mediaItem2.attr("data-videosrc"),
                                 mediaOptimizedSrc2 = ("undefined" != typeof $mediaItem2.attr("data-imgsrc")) ? $mediaItem2.find("img").attr("src") : "";
@@ -2019,18 +2016,18 @@ var ClientChat = function(){
                         $popupHtml += "</div>";
                     $popupHtml += "</div>";
 
-                $2("body").append($popupHtml);
+                $("body").append($popupHtml);
             } else {
                 var $popupThumbnailsHtml = "";
-                $2("body").find(".powerChatMediaPopup .powerChatMediaPopupBody").empty();
+                $("body").find(".powerChatMediaPopup .powerChatMediaPopupBody").empty();
                 if ("image" == mediaType) {
-                    $2("body").find(".powerChatMediaPopup .powerChatMediaPopupBody").append("<img src='"+_self.sanitize(mediaSrc)+"' />");
+                    $("body").find(".powerChatMediaPopup .powerChatMediaPopupBody").append("<img src='"+_self.sanitize(mediaSrc)+"' />");
                 } else if ("video" == mediaType) {
-                    $2("body").find(".powerChatMediaPopup .powerChatMediaPopupBody").append("<video controls src='"+_self.sanitize(mediaSrc)+"'></video>");
+                    $("body").find(".powerChatMediaPopup .powerChatMediaPopupBody").append("<video controls src='"+_self.sanitize(mediaSrc)+"'></video>");
                 }
 
                 $mediaItems.each(function(){
-                    var $mediaItem2 = $2(this),
+                    var $mediaItem2 = $(this),
                         mediaType2 = ("undefined" != typeof $mediaItem2.attr("data-imgsrc")) ? "image" : "video",
                         mediaSrc2 = ("undefined" != typeof $mediaItem2.attr("data-imgsrc")) ? _self.sanitize($mediaItem2.attr("data-imgsrc")) : _self.sanitize($mediaItem2.attr("data-videosrc")),
                         mediaOptimizedSrc2 = ("undefined" != typeof $mediaItem2.attr("data-imgsrc")) ? _self.sanitize($mediaItem2.find("img").attr("src")) : "";
@@ -2045,21 +2042,21 @@ var ClientChat = function(){
                         $popupThumbnailsHtml += "</a>";
                     }
                 });
-                $2("body").find(".powerChatMediaPopup .powerChatMediaPopupThumbnails").html($popupThumbnailsHtml);
+                $("body").find(".powerChatMediaPopup .powerChatMediaPopupThumbnails").html($popupThumbnailsHtml);
 
-                $2("body").find(".powerChatMediaPopup").addClass("show");
+                $("body").find(".powerChatMediaPopup").addClass("show");
             }
         });
 
-        $2("body").on("click", ".btnClosePowerChatMediaPopup", function(e){
+        $("body").on("click", ".btnClosePowerChatMediaPopup", function(e){
             e.preventDefault();
-            $2("body").find(".powerChatMediaPopup").removeClass("show");
-            $2("body").find(".powerChatMediaPopup .powerChatMediaPopupBody, .powerChatMediaPopup .powerChatMediaPopupThumbnails").empty();
+            $("body").find(".powerChatMediaPopup").removeClass("show");
+            $("body").find(".powerChatMediaPopup .powerChatMediaPopupBody, .powerChatMediaPopup .powerChatMediaPopupThumbnails").empty();
         });
 
-        $2("body").on("click", ".powerChatMediaPopup .powerChatPopupThumbnailItem[data-imgsrc], .powerChatMediaPopup .powerChatPopupThumbnailItem[data-videosrc]", function(e){
+        $("body").on("click", ".powerChatMediaPopup .powerChatPopupThumbnailItem[data-imgsrc], .powerChatMediaPopup .powerChatPopupThumbnailItem[data-videosrc]", function(e){
             e.preventDefault();
-            var $mediaItem = $2(this),
+            var $mediaItem = $(this),
                 $popup = $mediaItem.closest(".powerChatMediaPopup"),
                 mediaType = ("undefined" != typeof $mediaItem.attr("data-imgsrc")) ? "image" : "video",
                 mediaSrc = ("undefined" != typeof $mediaItem.attr("data-imgsrc")) ? $mediaItem.attr("data-imgsrc") : $mediaItem.attr("data-videosrc"),
@@ -2074,17 +2071,17 @@ var ClientChat = function(){
             $mediaItem.addClass("active");
         });
 
-        $2("body").on("click", ".btnShowPowerChatFob", function(e){
+        $("body").on("click", ".btnShowPowerChatFob", function(e){
             e.preventDefault();
             console.log("opening powerchat");
-            var $btn = $2(this),
-                $powerChat = $2("body").find(".powerChat");
+            var $btn = $(this),
+                $powerChat = $("body").find(".powerChat");
             $powerChat.addClass("show");
-            if (true == _self.isMobile && !$2("body").hasClass("powerChatOpen")) {
+            if (true == _self.isMobile && !$("body").hasClass("powerChatOpen")) {
                 const height = window.visualViewport.height;
                 const scrollY = document.body.style.top;
-                $2("html, body").addClass("powerChatOpen");
-                $2("html, body").attr("style", "height: "+parseInt(height,10)+"px !important");
+                $("html, body").addClass("powerChatOpen");
+                $("html, body").attr("style", "height: "+parseInt(height,10)+"px !important");
                 _self.adjustChatScrollArea();
                 window.scrollTo(0, parseInt(scrollY || "0") * -1);
                 _self.lockScroll();
@@ -2117,15 +2114,15 @@ var ClientChat = function(){
             },100);
         });
 
-        $2("body").on("click", ".powerChat .btnToggleChat", function(e){
+        $("body").on("click", ".powerChat .btnToggleChat", function(e){
             e.preventDefault();
             console.log("closing powerchat");
-            var $btn = $2(this),
-                $powerChat = $2("body").find(".powerChat");
+            var $btn = $(this),
+                $powerChat = $("body").find(".powerChat");
             $powerChat.removeClass("show");
-            if (true == _self.isMobile && $2("body").hasClass("powerChatOpen")) {
-                $2("html, body").removeClass("powerChatOpen");
-                $2("html, body").removeAttr("style");
+            if (true == _self.isMobile && $("body").hasClass("powerChatOpen")) {
+                $("html, body").removeClass("powerChatOpen");
+                $("html, body").removeAttr("style");
                 _self.adjustChatScrollArea();
                 _self.unlockScroll();
                 document.removeEventListener("touchmove", _self.preventScroll);
@@ -2138,12 +2135,12 @@ var ClientChat = function(){
             }
         });
 
-        $2("body").on("touchstart", ".chatConversationWrapper", function(e) {
+        $("body").on("touchstart", ".chatConversationWrapper", function(e) {
             _self.startY = e.originalEvent.touches[0].clientY;
         });
 
-        $2("body").on("touchmove", ".chatConversationWrapper", function(e) {
-            const $this = $2(this);
+        $("body").on("touchmove", ".chatConversationWrapper", function(e) {
+            const $this = $(this);
             const scrollTop = $this.scrollTop();
             const scrollHeight = $this[0].scrollHeight;
             const offsetHeight = $this.outerHeight();
@@ -2160,10 +2157,10 @@ var ClientChat = function(){
             }
         });
 
-        $2("body").on("click", ".powerChat .btnSendThisMessage", function(e){
+        $("body").on("click", ".powerChat .btnSendThisMessage", function(e){
             e.preventDefault();
             var $btn = $(this),
-                $texInput = $2("body").find(".chatNewMessageWrapper textarea.newMessageInput"),
+                $texInput = $("body").find(".chatNewMessageWrapper textarea.newMessageInput"),
                 $parent = $texInput.parent();
 
             if ($texInput.length > 0) {
@@ -2192,10 +2189,10 @@ var ClientChat = function(){
 
     _self.init = function(){
         // change mobile,desktop detection method
-        if ($2("head").find("script[src*='desktop.interface.js']").length > 0) {
+        if ($("head").find("script[src*='desktop.interface.js']").length > 0) {
             _self.isDesktop = true;
             _self.isMobile = false;
-        } else if ($2("head").find("script[src*='mobile.interface.js']").length > 0) {
+        } else if ($("head").find("script[src*='mobile.interface.js']").length > 0) {
             _self.isDesktop = false;
             _self.isMobile = true;
         }
@@ -2216,7 +2213,7 @@ if ("undefined" != typeof checkForPowerChatInterval) {
     clearInterval(checkForPowerChatInterval);
 }
 checkForPowerChatInterval = setInterval(function(){
-    if ("undefined" != typeof $2) {
+    if ("undefined" != typeof $) {
         console.log("powerchat ready");
         clearInterval(checkForPowerChatInterval);
         window.ClientChat = new ClientChat();
