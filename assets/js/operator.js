@@ -378,7 +378,7 @@ var OperatorChat = function(){
             var parsed = new URL(url);
             // List of tracker param substrings (add any new as needed)
             var trackerPatterns = [
-                "utm", "ga", "gad", "gclid", "fbclid", "yclid", "msclkid", "igshid", "mc", "ref", "trk", "spm", "amp", "vero", "hsa", "sca", "pk", "wt", "gbraid"
+                "utm", "ga", "gad", "gclid", "fbclid", "yclid", "msclkid", "igshid", "mc", "ref", "trk", "spm", "amp", "vero", "hsa", "sca", "pk", "wt", "gbraid", "utm_source"
             ];
             // Make a list of params to remove (cannot modify while iterating in some browsers)
             var keysToRemove = [];
